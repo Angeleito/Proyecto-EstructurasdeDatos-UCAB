@@ -1,0 +1,111 @@
+Supongamos que la información sobre las secciones viene dada por el siguiente archivo:
+Seccion:  Algoritmos y Estructuras de Datos INFO-02002 
+Bloques: 2 2 2
+Profesor: Carlos Perez    ci: 11111111
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+Seccion:  Estructuras e Datos y Algoritmos INFO-02002 
+Bloques: 2 2 2
+Profesor: Nancy Martinez    ci: 11111112
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+Seccion:  Matematicas Discretas INFO-02000
+Bloques: 2 2 1
+Profesor: Henry Marcano    ci: 11111113
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+Seccion:  Algebra Lineal FING-02001
+Bloques: 2 2 1
+Profesor: Henry Marcano    ci: 11111113
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+Henry Alvarez 31000003
+Seccion:  Algebra Lineal FING-02001
+Bloques: 2 2 1
+Profesor: Lisandro Alvarado    ci: 11111121
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+Seccion:  Algoritmos y programación INFO-02001
+Bloques: 3
+Profesor: Carlos Perez    ci: 11111111
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+Henry Alvarez 31000003
+Seccion:  Algoritmos y programación INFO-02001
+Bloques: 3
+Profesor: Nancy Martinez    ci: 11111112
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+Seccion:  Calculo Diferencial FNG-02003
+Bloques: 3
+Profesor: Rodrigo Cabezas    ci: 11111119
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+Henry Alvarez 31000003
+Seccion:  Calculo Diferencial FNG-02003
+Bloques: 3
+Profesor: Pedro Soto    ci: 11111120
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+Seccion:  Estructuras e Datos y Algoritmos INFO-02002 
+Bloques: 2 2 2
+Profesor: Ana Rodriguez    ci: 11111116
+Estudiantes:
+Roger Perez ci: 31000007
+Mauricio Perez ci: 31000008
+Nidia Vargas ci: 31000009
+Seccion:  Algoritmos y Estructuras de Datos INFO-02002 
+Bloques: 2 2 2
+Profesor: Ramon Aveledo    ci: 11111117
+Estudiantes:
+Eliseo Pereira ci: 31000010
+Carlos Martinez ci: 31000011
+Carmen Levi ci: 31000012
+Seccion:  Matematicas Discretas INFO-02000
+Bloques: 2 2 1
+Profesor: Ana Cavalli    ci: 11111118
+Estudiantes:
+Roger Perez ci: 31000007
+Mauricio Perez ci: 31000008
+Nidia Vargas ci: 31000009
+Eliseo Pereira ci: 31000010
+Carlos Martinez ci: 31000011
+Carmen Levi ci: 31000012
+Seccion:  Algebra Lineal FING-02001
+Bloques: 2 2 1
+Profesor: Ana cavalli   ci: 11111118
+Estudiantes:
+Eliseo Pereira ci: 31000010
+Carlos Martinez ci: 31000011
+Carmen Levi ci: 31000012
+Alfredo Acosta 31000013
+Seccion:  Algoritmos y programación INFO-02001
+Bloques: 3
+Profesor Ana Rodriguez    ci: 11111116
+Estudiantes:
+Roger Perez ci: 31000007
+Mauricio Perez ci: 31000008
+Nidia Vargas ci: 31000009
+Alfredo Acosta 31000013
+
