@@ -1,0 +1,48 @@
+//proyecto estructura de datos
+
+#include <cstdlib>
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+int main()
+
+{
+
+FILE * archivop;
+
+  long medida;
+
+  char * texto;
+
+archivop = fopen ("archivop.txt", "r"); //Aqui estamos abriendo el achivo con "r" lo que significa solo lectura
+
+//esta mini "funcion" hace que sepamos la cantidad de texto que hay en el archivo
+
+fseek (archivop , 0 , SEEK_END);
+
+medida = ftell (archivop);
+
+rewind (archivop);
+
+//asignamos la memoria donde estara el archivo completo
+
+texto = (char*) malloc (sizeof(char)*medida);
+
+//almacenamos el texto del archivo en la variable "texto"
+
+fread(texto, medida+1, 1, archivop);
+
+//imprimimos el texto del archivo
+
+cout << texto << endl;
+
+fclose(archivop);
+
+ // queria poner para borrar el system32 de meme pero no lo puse por si acaso JAJAJAJAJAJA
+    system("pause");
+
+    return 0;
+
+}
