@@ -3,6 +3,7 @@
 #include <string>
 #include <cstdlib>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 //creo la estructura de datos que almacenará toda la información necesaria, schedule es horario y es un vector debido a
@@ -13,8 +14,9 @@ vector<int> blocks;
 string prof;
 vector<string> students;
 int n_conflicts;
-string dia;
+string day;
 vector<string> schedule;
+section* next;
 };
 
 //este es el head
@@ -26,11 +28,18 @@ int main (){
     name_file();
 }
 
+void clear_screen() {
+    #ifdef _WIN32 
+        std::system("cls");
+    #else 
+        std::system("clear");
+    #endif
+    }
 
 bool open_file(string name){
+    section* nodo = new section;
     ifstream file;
     string line;
-    string txt;
     file.open(name.c_str(),ios::in);
 
     if(file.fail()){
@@ -38,10 +47,18 @@ bool open_file(string name){
     }
     while(!file.eof()){
         getline(file,line);
-        txt += line;
-        txt += "\n";
+        if (line.find("Seccion:")!=string::npos){
+            nodo->name_class = line.substr(10);
+        }
+        else if (line.find("Bloques")!=string::npos){
+            int num;
+            string substr = line.substr(9);
+            stringstream ss(substr);
+            while(ss >> num){
+            nodo->blocks.push_back(num);
+            }
+        }
     }
-    cout << txt;
     file.close();
     return false;
 }
@@ -62,10 +79,3 @@ void name_file(){
     }
 }
 
-void clear_screen() {
-    #ifdef _WIN32 
-        std::system("cls");
-    #else 
-        std::system("clear");
-    #endif
-    }
