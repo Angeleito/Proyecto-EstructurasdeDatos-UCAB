@@ -2,6 +2,8 @@
     "files.associations": {
         "xstring": "cpp",
         "xutility": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "fstream": "cpp",
+        "iosfwd": "cpp"
     }
 }
