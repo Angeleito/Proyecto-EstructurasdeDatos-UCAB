@@ -48,7 +48,7 @@ void menu() {
     bool salir = false;
     while (!salir) {
         clear_screen();
-        // Mostrar siempre las secciones disponibles
+        // Mostrar siempre las secciones/materias disponibles
         if (head) {
             mostrar_todas_las_secciones(head);
             cout << endl;
@@ -76,6 +76,8 @@ void menu() {
                 if (!head) {
                     cout << "Primero debe cargar un archivo de secciones.\n";
                 } else {
+                    // Mostrar todas las materias antes de asignar
+                    mostrar_todas_las_secciones(head);
                     asignar_horarios_orden(head);
                     cout << "Horarios asignados para un dia (lunes).\n";
                 }
@@ -274,7 +276,7 @@ void asignar_horarios_orden(section* head) {
 }
 
 void mostrar_todas_las_secciones(section* head) {
-    cout << "Secciones disponibles:\n";
+    cout << "Secciones/Materias disponibles:\n";
     for (section* s = head; s != nullptr; s = s->next) {
         cout << "- " << s->name_class << endl;
     }
