@@ -62,6 +62,13 @@ void menu() {
         cout << "Seleccione una opcion: ";
         cin >> opcion;
         cin.ignore();
+            if (std::cin.fail()) {
+                std::cout << "Entrada invalida. Debe ingresar un numero entero.\n";
+                std::cin.clear(); // Limpia el estado de error
+                std::cin.ignore(10000, '\n'); // Descarta la entrada incorrecta
+                pause();
+                continue; // Vuelve al inicio del bucle para mostrar el menú de nuevo
+            }
         switch (opcion) {
             case 1:
                 // Lee el archivo de entrada y carga las secciones
