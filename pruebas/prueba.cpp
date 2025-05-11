@@ -1,31 +1,32 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <sstream>
-#include <cstdlib>
-#include <algorithm>
+#include <iostream>      // Permite entrada y salida estándar
+#include <fstream>       // Permite manejo de archivos
+#include <string>        // Permite uso de cadenas de texto
+#include <vector>        // Permite uso de vectores (arreglos dinámicos)
+#include <sstream>       // Permite manipulación de strings como flujos
+#include <cstdlib>       // Permite uso de funciones del sistema
+#include <algorithm>     // Permite uso de algoritmos estándar (no se usa mucho aquí)
 
-using namespace std;
+using namespace std;     // Usa el espacio de nombres estándar para evitar std::
 
 struct section {
-    string name_class;
-    vector<int> blocks;
-    string prof;
-    string prof_ci;
-    vector<pair<string, string>> students; // nombre, ci
-    vector<pair<int, int>> horarios; // pares de hora inicio y fin por bloque
-    section* next;
+    string name_class;                           // Nombre de la materia/sección
+    vector<int> blocks;                          // Vector con los bloques de horas de la sección
+    string prof;                                 // Nombre del profesor
+    string prof_ci;                              // Cédula del profesor
+    vector<pair<string, string>> students;       // Vector de pares (nombre, ci) de estudiantes
+    vector<pair<int, int>> horarios;             // Vector de pares (hora inicio, hora fin) asignados a la sección
+    section* next;                               // Puntero al siguiente nodo de la lista enlazada de secciones
 };
 
 void clear_screen() {
 #ifdef _WIN32
-    system("cls");
+    system("cls");      // Limpia pantalla en Windows
 #else
-    system("clear");
+    system("clear");    // Limpia pantalla en otros sistemas
 #endif
 }
 
+// Declaración de funciones
 void menu();
 section* leer_secciones(string nombre_archivo);
 void liberar_lista(section* head);
@@ -37,22 +38,23 @@ bool hay_conflicto(section* s1, section* s2);
 vector<int> horas_disponibles(section* head, section* actual);
 
 int main() {
-    menu();
+    menu();     // Llama al menú principal
     return 0;
 }
 
 void menu() {
     string archivo_entrada, archivo_salida;
-    section* head = nullptr;
+    section* head = nullptr;     // Puntero al inicio de la lista de secciones
     int opcion;
     bool salir = false;
     while (!salir) {
-        clear_screen();
-        // Mostrar siempre las secciones/materias disponibles
+        clear_screen();          // Limpia la pantalla
+        // Muestra todas las secciones/materias disponibles si ya se cargaron
         if (head) {
             mostrar_todas_las_secciones(head);
             cout << endl;
         }
+        // Muestra el menú principal
         cout << "===== MENU PRINCIPAL =====\n";
         cout << "1. Leer archivo de secciones\n";
         cout << "2. Asignar horarios (orden original)\n";
@@ -64,26 +66,28 @@ void menu() {
         cin.ignore();
         switch (opcion) {
             case 1:
+                // Lee el archivo de entrada y carga las secciones
                 cout << "Ingrese el nombre del archivo de entrada: ";
                 getline(cin, archivo_entrada);
-                liberar_lista(head);
-                head = leer_secciones(archivo_entrada);
+                liberar_lista(head); // Libera memoria de la lista anterior
+                head = leer_secciones(archivo_entrada); // Lee y carga las secciones
                 if (head) cout << "Archivo cargado correctamente.\n";
                 else cout << "Error al cargar el archivo.\n";
                 system("pause");
                 break;
             case 2:
+                // Asigna horarios a las secciones en orden
                 if (!head) {
                     cout << "Primero debe cargar un archivo de secciones.\n";
                 } else {
-                    // Mostrar todas las materias antes de asignar
-                    mostrar_todas_las_secciones(head);
-                    asignar_horarios_orden(head);
+                    mostrar_todas_las_secciones(head); // Muestra las materias antes de asignar
+                    asignar_horarios_orden(head);      // Asigna horarios
                     cout << "Horarios asignados para un dia (lunes).\n";
                 }
                 system("pause");
                 break;
             case 3:
+                // Guarda el resultado en un archivo
                 if (!head) {
                     cout << "Primero debe cargar y asignar horarios.\n";
                 } else {
@@ -93,12 +97,13 @@ void menu() {
                     bool larga;
                     cin >> larga;
                     cin.ignore();
-                    guardar_resultado(head, archivo_salida, larga);
+                    guardar_resultado(head, archivo_salida, larga); // Guarda el resultado
                     cout << "Archivo guardado.\n";
                 }
                 system("pause");
                 break;
             case 4:
+                // Muestra el resultado por pantalla
                 if (!head) {
                     cout << "Primero debe cargar y asignar horarios.\n";
                 } else {
@@ -106,30 +111,43 @@ void menu() {
                     bool larga;
                     cin >> larga;
                     cin.ignore();
-                    imprimir_resultado(head, larga);
+                    imprimir_resultado(head, larga); // Imprime el resultado
                 }
                 system("pause");
                 break;
             case 5:
-                salir = true;
+                salir = true; // Sale del menú
                 break;
             default:
                 cout << "Opcion invalida.\n";
                 system("pause");
         }
     }
-    liberar_lista(head);
+    liberar_lista(head); // Libera memoria al salir
 }
 
+// Lee el archivo de secciones y construye la lista enlazada
 section* leer_secciones(string nombre_archivo) {
-    ifstream file(nombre_archivo);
+    ifstream file(nombre_archivo); // Abre el archivo
     if (!file.is_open()) return nullptr;
     section* head = nullptr;
     section* tail = nullptr;
     string line;
+    string pending_line;
     section* actual = nullptr;
-    while (getline(file, line)) {
+    bool has_pending = false;
+
+    while (true) {
+        // Lee la siguiente línea o usa la pendiente
+        if (!has_pending) {
+            if (!getline(file, line)) break;
+        } else {
+            line = pending_line;
+            has_pending = false;
+        }
+        if (line.empty()) continue; // Ignora líneas vacías
         if (line.find("Seccion:") != string::npos) {
+            // Crea una nueva sección
             section* nueva = new section;
             nueva->name_class = line.substr(line.find(":") + 1);
             nueva->name_class.erase(0, nueva->name_class.find_first_not_of(" \t"));
@@ -139,11 +157,13 @@ section* leer_secciones(string nombre_archivo) {
             tail = nueva;
             actual = nueva;
         } else if (line.find("Bloques:") != string::npos && actual) {
+            // Lee los bloques de horas
             actual->blocks.clear();
             stringstream ss(line.substr(line.find(":") + 1));
             int num;
             while (ss >> num) actual->blocks.push_back(num);
         } else if (line.find("Profesor:") != string::npos && actual) {
+            // Lee el nombre y la cédula del profesor
             string datos = line.substr(line.find(":") + 1);
             size_t pos = datos.find("ci:");
             if (pos != string::npos) {
@@ -155,54 +175,42 @@ section* leer_secciones(string nombre_archivo) {
                 actual->prof = datos;
                 actual->prof_ci = "";
             }
-                } else if (line.find("Estudiantes:") != string::npos && actual) {
-            // leer estudiantes hasta la siguiente seccion o fin de archivo
+        } else if (line.find("Estudiantes:") != string::npos && actual) {
+            // Lee la lista de estudiantes hasta la siguiente sección o fin de archivo
             string next_line;
             while (getline(file, next_line)) {
-                if (next_line.empty() || next_line.find("Seccion:") != string::npos) {
-                    // Si es una nueva sección, procesar en la siguiente vuelta del while principal
-                    line = next_line;
+                if (next_line.empty()) continue;
+                if (next_line.find("Seccion:") != string::npos) {
+                    pending_line = next_line;
+                    has_pending = true;
                     break;
                 }
-                // Buscar cedula (con o sin "ci:")
-                string nombre, ci;
-                size_t pos_ci = next_line.find("ci:");
-                if (pos_ci != string::npos) {
-                    nombre = next_line.substr(0, pos_ci);
-                    ci = next_line.substr(pos_ci + 3);
-                } else {
-                    // Buscar último espacio como separador de cedula
-                    size_t last_space = next_line.find_last_of(" ");
-                    if (last_space != string::npos && last_space + 1 < next_line.size()) {
-                        nombre = next_line.substr(0, last_space);
-                        ci = next_line.substr(last_space + 1);
-                    } else {
-                        nombre = next_line;
-                        ci = "";
+                size_t pos = next_line.find("ci:");
+                if (pos != string::npos) {
+                    string nombre = next_line.substr(0, pos);
+                    string ci = next_line.substr(pos + 3);
+                    nombre.erase(nombre.find_last_not_of(" \t")+1);
+                    ci.erase(0, ci.find_first_not_of(" \t"));
+                    // Evita duplicados de estudiantes
+                    bool repetido = false;
+                    for (auto& est : actual->students) {
+                        if (est.second == ci) {
+                            repetido = true;
+                            break;
+                        }
                     }
-                }
-                nombre.erase(nombre.find_last_not_of(" \t")+1);
-                ci.erase(0, ci.find_first_not_of(" \t"));
-                // Evitar duplicados
-                bool repetido = false;
-                for (auto& est : actual->students) {
-                    if (est.second == ci) {
-                        repetido = true;
-                        break;
+                    if (!repetido) {
+                        actual->students.push_back({nombre, ci});
                     }
-                }
-                if (!repetido && !ci.empty()) {
-                    actual->students.push_back({nombre, ci});
                 }
             }
-            // Si next_line es "Seccion:", el while principal la procesará en la siguiente iteración
-            continue;
         }
     }
     file.close();
     return head;
 }
 
+// Libera la memoria de la lista enlazada de secciones
 void liberar_lista(section* head) {
     while (head) {
         section* temp = head;
@@ -211,7 +219,7 @@ void liberar_lista(section* head) {
     }
 }
 
-// Devuelve true si hay conflicto entre dos secciones (profesor o estudiante en comun)
+// Devuelve true si hay conflicto entre dos secciones (profesor o estudiante en común)
 bool hay_conflicto(section* s1, section* s2) {
     if (s1->prof_ci == s2->prof_ci && !s1->prof_ci.empty()) return true;
     for (auto& est1 : s1->students) {
@@ -222,7 +230,7 @@ bool hay_conflicto(section* s1, section* s2) {
     return false;
 }
 
-// Devuelve las horas disponibles para una seccion, evitando conflictos
+// Devuelve las horas disponibles para una sección, evitando conflictos
 vector<int> horas_disponibles(section* head, section* actual) {
     vector<bool> ocupadas(13, false); // horas 1 a 12 (7:00 a 19:00)
     for (section* s = head; s != nullptr; s = s->next) {
@@ -238,7 +246,7 @@ vector<int> horas_disponibles(section* head, section* actual) {
     return libres;
 }
 
-// Asigna horarios a cada seccion en orden, cumpliendo restricciones
+// Asigna horarios a cada sección en orden, cumpliendo restricciones
 void asignar_horarios_orden(section* head) {
     for (section* s = head; s != nullptr; s = s->next) {
         s->horarios.clear();
@@ -246,11 +254,11 @@ void asignar_horarios_orden(section* head) {
         int idx = 0, bloques_asignados = 0, horas_asignadas = 0;
         for (int b = 0; b < s->blocks.size(); ++b) {
             int tam = s->blocks[b];
-            // Restricciones
+            // Restricciones de bloques y horas máximas
             if (s->blocks.size() == 3 && tam == 2 && bloques_asignados >= 2) break;
             if (s->blocks.size() == 3 && s->blocks == vector<int>{2,2,1} && tam == 2 && bloques_asignados >= 1) break;
             if (horas_asignadas + tam > 4) break;
-            // Buscar bloque contiguo
+            // Busca bloques contiguos de horas libres
             bool asignado = false;
             while (idx + tam <= libres.size()) {
                 bool contiguo = true;
@@ -275,6 +283,7 @@ void asignar_horarios_orden(section* head) {
     }
 }
 
+// Muestra todas las secciones/materias disponibles
 void mostrar_todas_las_secciones(section* head) {
     cout << "Secciones/Materias disponibles:\n";
     for (section* s = head; s != nullptr; s = s->next) {
