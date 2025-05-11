@@ -159,7 +159,17 @@ section* leer_secciones(string nombre_archivo) {
                     string ci = line.substr(pos + 3);
                     nombre.erase(nombre.find_last_not_of(" \t")+1);
                     ci.erase(0, ci.find_first_not_of(" \t"));
-                    actual->students.push_back({nombre, ci});
+                    // Evitar duplicados
+                    bool repetido = false;
+                    for (auto& est : actual->students) {
+                        if (est.second == ci) {
+                            repetido = true;
+                            break;
+                        }
+                    }
+                    if (!repetido) {
+                        actual->students.push_back({nombre, ci});
+                    }
                 }
             }
         }
@@ -189,7 +199,7 @@ bool hay_conflicto(section* s1, section* s2) {
 
 // Devuelve las horas disponibles para una seccion, evitando conflictos
 vector<int> horas_disponibles(section* head, section* actual) {
-    vector<bool> ocupadas(11, false); // horas 1 a 10
+    vector<bool> ocupadas(13, false); // horas 1 a 12 (7:00 a 19:00)
     for (section* s = head; s != nullptr; s = s->next) {
         if (s == actual) break;
         if (hay_conflicto(s, actual)) {
@@ -199,7 +209,7 @@ vector<int> horas_disponibles(section* head, section* actual) {
         }
     }
     vector<int> libres;
-    for (int i = 1; i <= 10; ++i) if (!ocupadas[i]) libres.push_back(i);
+    for (int i = 1; i <= 12; ++i) if (!ocupadas[i]) libres.push_back(i);
     return libres;
 }
 

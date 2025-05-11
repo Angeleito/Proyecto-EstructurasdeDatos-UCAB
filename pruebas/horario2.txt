@@ -1,0 +1,19 @@
+Asignacion horaria de este dia (lunes):
+Curso:  Algoritmos y Estructuras de Datos INFO-02002 
+Profesor: Ana Rodriguez ci: 11111116
+Horario: 7:00 a 10:00
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+Roger Perez ci: 31000007
+Mauricio Perez ci: 31000008
+Nidia Vargas ci: 31000009
+Eliseo Pereira ci: 31000010
+Carlos Martinez ci: 31000011
+Carmen Levi ci: 31000012
+Alfredo Acosta ci: 31000013
+
