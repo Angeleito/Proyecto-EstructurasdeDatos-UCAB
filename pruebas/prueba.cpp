@@ -36,6 +36,7 @@ void imprimir_resultado(section* head, bool version_larga);
 void guardar_resultado(section* head, string nombre_archivo, bool version_larga);
 bool hay_conflicto(section* s1, section* s2);
 vector<int> horas_disponibles(section* head, section* actual);
+void pause();
 
 int main() {
     menu();     // Llama al menú principal
@@ -73,7 +74,7 @@ void menu() {
                 head = leer_secciones(archivo_entrada); // Lee y carga las secciones
                 if (head) cout << "Archivo cargado correctamente.\n";
                 else cout << "Error al cargar el archivo.\n";
-                system("pause");
+                pause();
                 break;
             case 2:
                 // Asigna horarios a las secciones en orden
@@ -84,7 +85,7 @@ void menu() {
                     asignar_horarios_orden(head);      // Asigna horarios
                     cout << "Horarios asignados para un dia (lunes).\n";
                 }
-                system("pause");
+                pause();
                 break;
             case 3:
                 // Guarda el resultado en un archivo
@@ -100,7 +101,7 @@ void menu() {
                     guardar_resultado(head, archivo_salida, larga); // Guarda el resultado
                     cout << "Archivo guardado.\n";
                 }
-                system("pause");
+                pause();
                 break;
             case 4:
                 // Muestra el resultado por pantalla
@@ -113,14 +114,14 @@ void menu() {
                     cin.ignore();
                     imprimir_resultado(head, larga); // Imprime el resultado
                 }
-                system("pause");
+                pause();
                 break;
             case 5:
                 salir = true; // Sale del menú
                 break;
             default:
                 cout << "Opcion invalida.\n";
-                system("pause");
+                pause();
         }
     }
     liberar_lista(head); // Libera memoria al salir
@@ -208,6 +209,13 @@ section* leer_secciones(string nombre_archivo) {
     }
     file.close();
     return head;
+}
+
+// pausa antes de la siguiente instrucción
+void pause(){
+    string _;
+    cout << "presione cualquier tecla para continuar";
+    getline(cin,_);
 }
 
 // Libera la memoria de la lista enlazada de secciones
