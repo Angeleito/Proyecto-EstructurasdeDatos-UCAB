@@ -56,9 +56,11 @@ void menu() {
         cout << "===== MENU PRINCIPAL =====\n";
         cout << "1. Leer archivo de secciones"<<"(" << estado << ")"<< "\n";
         cout << "2. Asignar horarios (orden original)\n";
-        cout << "3. Guardar resultado en archivo\n";
-        cout << "4. Mostrar resultado por pantalla\n";
-        cout << "5. Salir\n";
+        cout << "3. Asignar horarios(orden inverso)\n";
+        cout << "4 Asignar horarios(estrategia por mayor conflicto)\n";
+        cout << "5. Guardar resultado en archivo\n";
+        cout << "6. Mostrar resultado por pantalla\n";
+        cout << "7. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
         cin.ignore();
@@ -92,6 +94,16 @@ void menu() {
                 pause();
                 break;
             case 3:
+                //Asigna horarios a las secciones en orden inverso
+                
+                pause();
+                break;
+            case 4:
+                //Asigna horarios a las secciones en orden de mayor conflicto
+                
+                pause();
+                break;
+            case 5:
                 // Guarda el resultado en un archivo
                 if (!head) {
                     cout << "Primero debe cargar y asignar horarios.\n";
@@ -107,7 +119,7 @@ void menu() {
                 }
                 pause();
                 break;
-            case 4:
+            case 6:
                 // Muestra el resultado por pantalla
                 if (!head) {
                     cout << "Primero debe cargar y asignar horarios.\n";
@@ -120,7 +132,7 @@ void menu() {
                 }
                 pause();
                 break;
-            case 5:
+            case 7:
                 salir = true; // Sale del menú
                 break;
             default:
