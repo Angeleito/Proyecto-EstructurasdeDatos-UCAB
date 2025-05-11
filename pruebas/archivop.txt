@@ -1,4 +1,4 @@
-Supongamos que la informaci�n sobre las secciones viene dada por el siguiente archivo:
+Supongamos que la informacion sobre las secciones viene dada por el siguiente archivo:
 Seccion:  Algoritmos y Estructuras de Datos INFO-02002 
 Bloques: 2 2 2
 Profesor: Carlos Perez    ci: 11111111
@@ -108,4 +108,3 @@ Roger Perez ci: 31000007
 Mauricio Perez ci: 31000008
 Nidia Vargas ci: 31000009
 Alfredo Acosta ci: 31000013
-
