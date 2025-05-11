@@ -191,7 +191,7 @@ section* leer_secciones(string nombre_archivo) {
                     break;
                 }
                 size_t pos = next_line.find("ci:");
-                if (pos != string::npos) {
+                if (pos != string::npos && actual) {
                     string nombre = next_line.substr(0, pos);
                     string ci = next_line.substr(pos + 3);
                     nombre.erase(nombre.find_last_not_of(" \t")+1);
@@ -233,7 +233,7 @@ void liberar_lista(section* head) {
 
 // Devuelve true si hay conflicto entre dos secciones (profesor o estudiante en común)
 bool hay_conflicto(section* s1, section* s2) {
-    if (s1->prof_ci == s2->prof_ci && !s1->prof_ci.empty()) return true;
+    if (s1->prof_ci == s2->prof_ci && !s1->prof_ci.empty() && !s2->prof_ci.empty()) return true;
     for (auto& est1 : s1->students) {
         for (auto& est2 : s2->students) {
             if (est1.second == est2.second) return true;
@@ -268,7 +268,12 @@ void asignar_horarios_orden(section* head) {
             int tam = s->blocks[b];
             // Restricciones de bloques y horas máximas
             if (s->blocks.size() == 3 && tam == 2 && bloques_asignados >= 2) break;
-            if (s->blocks.size() == 3 && s->blocks == vector<int>{2,2,1} && tam == 2 && bloques_asignados >= 1) break;
+            if (s->blocks.size() == 3 && s->blocks == vector<int>{2,2,1} && tam == 2 && bloques_asignados >= 1) {
+                if(tam == 2){
+                    tam == 1;
+                    continue;
+                } else break;
+            }
             if (horas_asignadas + tam > 4) break;
             // Busca bloques contiguos de horas libres
             bool asignado = false;
