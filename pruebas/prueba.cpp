@@ -30,6 +30,7 @@ void menu();
 section* leer_secciones(string nombre_archivo);
 void liberar_lista(section* head);
 void asignar_horarios_orden(section* head);
+void mostrar_todas_las_secciones(section* head);
 void imprimir_resultado(section* head, bool version_larga);
 void guardar_resultado(section* head, string nombre_archivo, bool version_larga);
 bool hay_conflicto(section* s1, section* s2);
@@ -47,6 +48,11 @@ void menu() {
     bool salir = false;
     while (!salir) {
         clear_screen();
+        // Mostrar siempre las secciones disponibles
+        if (head) {
+            mostrar_todas_las_secciones(head);
+            cout << endl;
+        }
         cout << "===== MENU PRINCIPAL =====\n";
         cout << "1. Leer archivo de secciones\n";
         cout << "2. Asignar horarios (orden original)\n";
@@ -123,7 +129,8 @@ section* leer_secciones(string nombre_archivo) {
     while (getline(file, line)) {
         if (line.find("Seccion:") != string::npos) {
             section* nueva = new section;
-            nueva->name_class = line.substr(9);
+            nueva->name_class = line.substr(line.find(":") + 1);
+            nueva->name_class.erase(0, nueva->name_class.find_first_not_of(" \t"));
             nueva->next = nullptr;
             if (!head) head = nueva;
             if (tail) tail->next = nueva;
@@ -131,11 +138,11 @@ section* leer_secciones(string nombre_archivo) {
             actual = nueva;
         } else if (line.find("Bloques:") != string::npos && actual) {
             actual->blocks.clear();
-            stringstream ss(line.substr(9));
+            stringstream ss(line.substr(line.find(":") + 1));
             int num;
             while (ss >> num) actual->blocks.push_back(num);
         } else if (line.find("Profesor:") != string::npos && actual) {
-            string datos = line.substr(10);
+            string datos = line.substr(line.find(":") + 1);
             size_t pos = datos.find("ci:");
             if (pos != string::npos) {
                 actual->prof = datos.substr(0, pos);
@@ -146,32 +153,48 @@ section* leer_secciones(string nombre_archivo) {
                 actual->prof = datos;
                 actual->prof_ci = "";
             }
-        } else if (line.find("Estudiantes:") != string::npos && actual) {
+                } else if (line.find("Estudiantes:") != string::npos && actual) {
             // leer estudiantes hasta la siguiente seccion o fin de archivo
-            while (getline(file, line)) {
-                if (line.empty() || line.find("Seccion:") != string::npos) {
-                    if (!line.empty()) file.seekg(-((int)line.length()+1), ios::cur);
+            string next_line;
+            while (getline(file, next_line)) {
+                if (next_line.empty() || next_line.find("Seccion:") != string::npos) {
+                    // Si es una nueva sección, procesar en la siguiente vuelta del while principal
+                    line = next_line;
                     break;
                 }
-                size_t pos = line.find("ci:");
-                if (pos != string::npos) {
-                    string nombre = line.substr(0, pos);
-                    string ci = line.substr(pos + 3);
-                    nombre.erase(nombre.find_last_not_of(" \t")+1);
-                    ci.erase(0, ci.find_first_not_of(" \t"));
-                    // Evitar duplicados
-                    bool repetido = false;
-                    for (auto& est : actual->students) {
-                        if (est.second == ci) {
-                            repetido = true;
-                            break;
-                        }
-                    }
-                    if (!repetido) {
-                        actual->students.push_back({nombre, ci});
+                // Buscar cedula (con o sin "ci:")
+                string nombre, ci;
+                size_t pos_ci = next_line.find("ci:");
+                if (pos_ci != string::npos) {
+                    nombre = next_line.substr(0, pos_ci);
+                    ci = next_line.substr(pos_ci + 3);
+                } else {
+                    // Buscar último espacio como separador de cedula
+                    size_t last_space = next_line.find_last_of(" ");
+                    if (last_space != string::npos && last_space + 1 < next_line.size()) {
+                        nombre = next_line.substr(0, last_space);
+                        ci = next_line.substr(last_space + 1);
+                    } else {
+                        nombre = next_line;
+                        ci = "";
                     }
                 }
+                nombre.erase(nombre.find_last_not_of(" \t")+1);
+                ci.erase(0, ci.find_first_not_of(" \t"));
+                // Evitar duplicados
+                bool repetido = false;
+                for (auto& est : actual->students) {
+                    if (est.second == ci) {
+                        repetido = true;
+                        break;
+                    }
+                }
+                if (!repetido && !ci.empty()) {
+                    actual->students.push_back({nombre, ci});
+                }
             }
+            // Si next_line es "Seccion:", el while principal la procesará en la siguiente iteración
+            continue;
         }
     }
     file.close();
@@ -247,6 +270,13 @@ void asignar_horarios_orden(section* head) {
             }
             if (!asignado) break;
         }
+    }
+}
+
+void mostrar_todas_las_secciones(section* head) {
+    cout << "Secciones disponibles:\n";
+    for (section* s = head; s != nullptr; s = s->next) {
+        cout << "- " << s->name_class << endl;
     }
 }
 
