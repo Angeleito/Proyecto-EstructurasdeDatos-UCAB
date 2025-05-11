@@ -36,6 +36,7 @@ void imprimir_resultado(section* head, bool version_larga);
 void guardar_resultado(section* head, string nombre_archivo, bool version_larga);
 bool hay_conflicto(section* s1, section* s2);
 vector<int> horas_disponibles(section* head, section* actual);
+void pause();
 
 int main() {
     menu();     // Llama al menú principal
@@ -43,20 +44,17 @@ int main() {
 }
 
 void menu() {
+    string estado = "No cargado";
     string archivo_entrada, archivo_salida;
-    section* head = nullptr;     // Puntero al inicio de la lista de secciones
+    section* head = nullptr;   // Puntero al inicio de la lista de secciones
+    string _;     
     int opcion;
     bool salir = false;
     while (!salir) {
         clear_screen();          // Limpia la pantalla
-        // Muestra todas las secciones/materias disponibles si ya se cargaron
-        if (head) {
-            mostrar_todas_las_secciones(head);
-            cout << endl;
-        }
         // Muestra el menú principal
         cout << "===== MENU PRINCIPAL =====\n";
-        cout << "1. Leer archivo de secciones\n";
+        cout << "1. Leer archivo de secciones"<<"(" << estado << ")"<< "\n";
         cout << "2. Asignar horarios (orden original)\n";
         cout << "3. Guardar resultado en archivo\n";
         cout << "4. Mostrar resultado por pantalla\n";
@@ -64,6 +62,13 @@ void menu() {
         cout << "Seleccione una opcion: ";
         cin >> opcion;
         cin.ignore();
+            if (std::cin.fail()) {
+                std::cout << "Entrada invalida. Debe ingresar un numero entero.\n";
+                std::cin.clear(); // Limpia el estado de error
+                std::cin.ignore(10000, '\n'); // Descarta la entrada incorrecta
+                pause();
+                continue; // Vuelve al inicio del bucle para mostrar el menú de nuevo
+            }
         switch (opcion) {
             case 1:
                 // Lee el archivo de entrada y carga las secciones
@@ -71,9 +76,9 @@ void menu() {
                 getline(cin, archivo_entrada);
                 liberar_lista(head); // Libera memoria de la lista anterior
                 head = leer_secciones(archivo_entrada); // Lee y carga las secciones
-                if (head) cout << "Archivo cargado correctamente.\n";
+                if (head) cout << "Archivo cargado correctamente.\n", estado = "Cargado";
                 else cout << "Error al cargar el archivo.\n";
-                system("pause");
+                pause();
                 break;
             case 2:
                 // Asigna horarios a las secciones en orden
@@ -84,7 +89,7 @@ void menu() {
                     asignar_horarios_orden(head);      // Asigna horarios
                     cout << "Horarios asignados para un dia (lunes).\n";
                 }
-                system("pause");
+                pause();
                 break;
             case 3:
                 // Guarda el resultado en un archivo
@@ -100,7 +105,7 @@ void menu() {
                     guardar_resultado(head, archivo_salida, larga); // Guarda el resultado
                     cout << "Archivo guardado.\n";
                 }
-                system("pause");
+                pause();
                 break;
             case 4:
                 // Muestra el resultado por pantalla
@@ -113,14 +118,14 @@ void menu() {
                     cin.ignore();
                     imprimir_resultado(head, larga); // Imprime el resultado
                 }
-                system("pause");
+                pause();
                 break;
             case 5:
                 salir = true; // Sale del menú
                 break;
             default:
                 cout << "Opcion invalida.\n";
-                system("pause");
+                pause();
         }
     }
     liberar_lista(head); // Libera memoria al salir
@@ -208,6 +213,13 @@ section* leer_secciones(string nombre_archivo) {
     }
     file.close();
     return head;
+}
+
+// pausa antes de la siguiente instrucción
+void pause(){
+    string _;
+    cout << "presione cualquier tecla para continuar";
+    getline(cin,_);
 }
 
 // Libera la memoria de la lista enlazada de secciones
