@@ -1,0 +1,121 @@
+Asignacion horaria de este dia (lunes):
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Carlos Perez ci: 11111111
+Horario: 7:00 a 9:00, 9:00 a 11:00
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+
+Curso: Estructuras e Datos y Algoritmos INFO-02002 
+Profesor:  Nancy Martinez ci: 11111112
+Horario: 7:00 a 9:00, 9:00 a 11:00
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Henry Marcano ci: 11111113
+Horario: 11:00 a 13:00, 13:00 a 14:00
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Henry Marcano ci: 11111113
+Horario: 14:00 a 16:00, 16:00 a 17:00
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Lisandro Alvarado ci: 11111121
+Horario: 14:00 a 16:00, 16:00 a 17:00
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Carlos Perez ci: 11111111
+Horario: 
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 11111112
+Horario: 
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 11111119
+Horario: 
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Pedro Soto ci: 11111120
+Horario: 
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+
+Curso: Estructuras e Datos y Algoritmos INFO-02002 
+Profesor:  Ana Rodriguez ci: 11111116
+Horario: 7:00 a 9:00, 9:00 a 11:00
+Estudiantes:
+Roger Perez ci: 31000007
+Mauricio Perez ci: 31000008
+Nidia Vargas ci: 31000009
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ramon Aveledo ci: 11111117
+Horario: 7:00 a 9:00, 9:00 a 11:00
+Estudiantes:
+Eliseo Pereira ci: 31000010
+Carlos Martinez ci: 31000011
+Carmen Levi ci: 31000012
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Ana Cavalli ci: 11111118
+Horario: 11:00 a 13:00, 13:00 a 14:00
+Estudiantes:
+Roger Perez ci: 31000007
+Mauricio Perez ci: 31000008
+Nidia Vargas ci: 31000009
+Eliseo Pereira ci: 31000010
+Carlos Martinez ci: 31000011
+Carmen Levi ci: 31000012
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Ana cavalli ci: 11111118
+Horario: 14:00 a 16:00, 16:00 a 17:00
+Estudiantes:
+Eliseo Pereira ci: 31000010
+Carlos Martinez ci: 31000011
+Carmen Levi ci: 31000012
+Alfredo Acosta ci: 31000013
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Ana Rodriguez ci: 11111116
+Horario: 
+Estudiantes:
+Roger Perez ci: 31000007
+Mauricio Perez ci: 31000008
+Nidia Vargas ci: 31000009
+Alfredo Acosta ci: 31000013
+

@@ -36,7 +36,9 @@ void imprimir_resultado(section* head, bool version_larga);
 void guardar_resultado(section* head, string nombre_archivo, bool version_larga);
 bool hay_conflicto(section* s1, section* s2);
 vector<int> horas_disponibles(section* head, section* actual);
+section* invertirLista(section* head);
 void pause();
+
 
 int main() {
     menu();     // Llama al menú principal
@@ -45,6 +47,7 @@ int main() {
 
 void menu() {
     string estado = "No cargado";
+    section* lista_inv = nullptr;
     string archivo_entrada, archivo_salida;
     section* head = nullptr;   // Puntero al inicio de la lista de secciones
     string _;     
@@ -71,6 +74,7 @@ void menu() {
                 pause();
                 continue; // Vuelve al inicio del bucle para mostrar el menú de nuevo
             }
+        
         switch (opcion) {
             case 1:
                 // Lee el archivo de entrada y carga las secciones
@@ -95,12 +99,25 @@ void menu() {
                 break;
             case 3:
                 //Asigna horarios a las secciones en orden inverso
-                
+                head = invertirLista(head);
+                if (!head) {
+                    cout << "Primero debe cargar un archivo de secciones.\n";
+                } else {
+                    mostrar_todas_las_secciones(head); // Muestra las materias antes de asignar
+                    asignar_horarios_orden(head);      // Asigna horarios
+                    cout << "Horarios asignados para un dia (lunes).\n";
+                }
                 pause();
                 break;
             case 4:
                 //Asigna horarios a las secciones en orden de mayor conflicto
-                
+                if (!head) {
+                    cout << "Primero debe cargar un archivo de secciones.\n";
+                } else {
+                    mostrar_todas_las_secciones(head); // Muestra las materias antes de asignar
+                    asignar_horarios_orden(head);      // Asigna horarios
+                    cout << "Horarios asignados para un dia (lunes).\n";
+                }
                 pause();
                 break;
             case 5:
@@ -310,6 +327,24 @@ void asignar_horarios_orden(section* head) {
             if (!asignado) break;
         }
     }
+}
+section* invertirLista(section* head) {
+    section* anterior = nullptr;
+    section* actual = head;
+    section* siguienteTemporal = nullptr;
+
+    while (actual != nullptr) {
+        // Guarda el siguiente nodo
+        siguienteTemporal = actual->next;
+
+        // Invierte el puntero 'siguiente' del nodo actual
+        actual->next = anterior;
+
+        // Mueve los punteros un paso hacia adelante
+        anterior = actual;
+        actual = siguienteTemporal;
+    };
+    return anterior;
 }
 
 // Muestra todas las secciones/materias disponibles
