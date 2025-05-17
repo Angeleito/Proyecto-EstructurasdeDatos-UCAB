@@ -17,6 +17,62 @@ struct section {
     vector<pair<int, int>> horarios;             // Vector de pares (hora inicio, hora fin) asignados a la sección
     section* next;                               // Puntero al siguiente nodo de la lista enlazada de secciones
 };
+struct ListaEnlazada {
+    section* cabeza;
+
+    ListaEnlazada* crearListaEnlazada() {
+    ListaEnlazada* nuevaLista = new ListaEnlazada;
+    nuevaLista->cabeza = nullptr; // La lista comienza vacía
+    return nuevaLista;
+}
+
+// Función para crear un nuevo nodo (la misma que antes)
+section* crearNodo(section* nodo) {
+    section* nuevoNodo = new section;
+    nuevoNodo = nodo;
+    nuevoNodo->next = nullptr;
+    return nuevoNodo;
+}
+
+section* copiar_cabeza (section* nodo) {
+    section* nuevoNodo = new section;
+    nuevoNodo = nodo;
+    return nuevoNodo;
+}
+
+// Función para añadir un nodo al final de la lista
+void agregarNodoFinal(ListaEnlazada* lista, section* nodo) {
+    section* nuevoNodo = crearNodo(nodo);
+
+    // Si la lista está vacía, el nuevo nodo se convierte en la cabeza
+    if (lista->cabeza == nullptr) {
+        lista->cabeza = nuevoNodo;
+        return;
+    }
+
+    // Si la lista no está vacía, recorremos hasta el último nodo
+    section* actual = lista->cabeza;
+    while (actual->next != nullptr) {
+        actual = actual->next;
+    }
+
+    // El siguiente del último nodo ahora apunta al nuevo nodo
+    actual->next = nuevoNodo;
+}
+void copiar_lista(ListaEnlazada* lista, section* head) {
+    lista->limpiar_lista(lista);
+    lista->cabeza = copiar_cabeza(head);
+}
+void limpiar_lista(ListaEnlazada* lista){
+    section* actual = lista->cabeza;
+    section* siguiente;
+    while (actual != nullptr) {
+        siguiente = actual->next;
+        delete actual;
+        actual = siguiente;
+    }
+}
+};
 
 void clear_screen() {
 #ifdef _WIN32
@@ -37,7 +93,12 @@ void guardar_resultado(section* head, string nombre_archivo, bool version_larga)
 bool hay_conflicto(section* s1, section* s2);
 vector<int> horas_disponibles(section* head, section* actual);
 section* invertirLista(section* head);
+
+vector<int> num_conflictos(ListaEnlazada* asignadas, ListaEnlazada* por_asignar);
+bool mayor_conflicto(vector<int>);
+
 void pause();
+
 
 
 int main() {
@@ -114,6 +175,7 @@ void menu() {
                 if (!head) {
                     cout << "Primero debe cargar un archivo de secciones.\n";
                 } else {
+                    lista_inv = invertirLista(head);
                     mostrar_todas_las_secciones(head); // Muestra las materias antes de asignar
                     asignar_horarios_orden(head);      // Asigna horarios
                     cout << "Horarios asignados para un dia (lunes).\n";
@@ -329,6 +391,31 @@ void asignar_horarios_orden(section* head) {
         }
     }
 }
+
+void asignar_horarios_por_conflicto(section* head) {
+    for (section* actual = head; actual != nullptr; actual = actual->next) {
+        vector<int> conflictos_no_asignadas;
+        vector<int> conflictos_asignadas;
+        conflictos_no_asignadas.clear();
+        actual->horarios.clear();
+}
+}
+
+void conflictos_asignadas(section* actual, section* head){
+    ListaEnlazada* lista_asignadas = lista_asignadas->crearListaEnlazada();
+    ListaEnlazada* lista_por_asignar = lista_por_asignar->crearListaEnlazada();
+    lista_por_asignar->copiar_lista(lista_por_asignar, head);
+    ListaEnlazada* lista_no_asignadas = lista_no_asignadas->crearListaEnlazada();
+    vector<int> conflictos_asignadas;
+    vector<int> conflictos_no_asignadas;
+    while(lista_por_asignar->cabeza != nullptr){
+        conflictos_asignadas = num_conflictos(lista_asignadas, lista_por_asignar);
+        if(mayor_conflicto(conflictos_asignadas) == true){
+
+        }
+    }
+}
+
 section* invertirLista(section* head) {
     section* anterior = nullptr;
     section* actual = head;
@@ -347,6 +434,8 @@ section* invertirLista(section* head) {
     };
     return anterior;
 }
+
+
 
 // Muestra todas las secciones/materias disponibles
 void mostrar_todas_las_secciones(section* head) {
