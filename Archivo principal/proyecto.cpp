@@ -19,12 +19,7 @@ struct section {
 };
 struct ListaEnlazada {
     section* cabeza;
-
-    ListaEnlazada* crearListaEnlazada() {
-    ListaEnlazada* nuevaLista = new ListaEnlazada;
-    nuevaLista->cabeza = nullptr; // La lista comienza vacía
-    return nuevaLista;
-}
+    section* sig_asignar;
 
 // Función para crear un nuevo nodo (la misma que antes)
 section* crearNodo(section* nodo) {
@@ -72,7 +67,14 @@ void limpiar_lista(ListaEnlazada* lista){
         actual = siguiente;
     }
 }
+void eliminar_nodo(ListaEnlazada*,section*){}
 };
+
+ListaEnlazada* crearListaEnlazada() {
+    ListaEnlazada* nuevaLista = new ListaEnlazada;
+    nuevaLista->cabeza = nullptr; // La lista comienza vacía
+    return nuevaLista;
+}
 
 void clear_screen() {
 #ifdef _WIN32
@@ -92,10 +94,16 @@ void imprimir_resultado(section* head, bool version_larga);
 void guardar_resultado(section* head, string nombre_archivo, bool version_larga);
 bool hay_conflicto(section* s1, section* s2);
 vector<int> horas_disponibles(section* head, section* actual);
+vector<int> horas_disponibles_conflictos(section* head, section* actual);
 section* invertirLista(section* head);
 
+void asignar_horarios_por_conflicto(section* head);
 vector<int> num_conflictos(ListaEnlazada* asignadas, ListaEnlazada* por_asignar);
-bool mayor_conflicto(vector<int>);
+bool mayor_conflicto(vector<int>, ListaEnlazada*);
+int asignar_horarios_inicio(ListaEnlazada*);
+int asignar_horarios_final(ListaEnlazada*);
+vector<int> conflictos_totales(ListaEnlazada*,ListaEnlazada*);
+bool conflictos_estudiantes(section* clase_no_asignada,section* clase_asignada);
 
 void pause();
 
@@ -175,9 +183,7 @@ void menu() {
                 if (!head) {
                     cout << "Primero debe cargar un archivo de secciones.\n";
                 } else {
-                    lista_inv = invertirLista(head);
-                    mostrar_todas_las_secciones(head); // Muestra las materias antes de asignar
-                    asignar_horarios_orden(head);      // Asigna horarios
+                    asignar_horarios_por_conflicto(head); 
                     cout << "Horarios asignados para un dia (lunes).\n";
                 }
                 pause();
@@ -349,6 +355,20 @@ vector<int> horas_disponibles(section* head, section* actual) {
     return libres;
 }
 
+vector<int> horas_disponibles_conflictos(ListaEnlazada* asignadas, ListaEnlazada por_asignar) {
+    vector<bool> ocupadas(12, false); // horas 1 a 12 (7:00 a 19:00)
+    for (section* s = asignadas->cabeza; s != nullptr; s = s->next) {
+        if (hay_conflicto(s, por_asignar.cabeza)) {
+            for (auto& h : s->horarios) {
+                for (int i = h.first; i < h.second; ++i) ocupadas[i] = true;
+            }
+        }
+    }
+    vector<int> libres;
+    for (int i = 1; i < 12; ++i) if (!ocupadas[i]) libres.push_back(i);
+    return libres;
+}
+
 // Asigna horarios a cada sección en orden, cumpliendo restricciones
 void asignar_horarios_orden(section* head) {
     for (section* s = head; s != nullptr; s = s->next) {
@@ -392,29 +412,8 @@ void asignar_horarios_orden(section* head) {
     }
 }
 
-void asignar_horarios_por_conflicto(section* head) {
-    for (section* actual = head; actual != nullptr; actual = actual->next) {
-        vector<int> conflictos_no_asignadas;
-        vector<int> conflictos_asignadas;
-        conflictos_no_asignadas.clear();
-        actual->horarios.clear();
-}
-}
-
 void conflictos_asignadas(section* actual, section* head){
-    ListaEnlazada* lista_asignadas = lista_asignadas->crearListaEnlazada();
-    ListaEnlazada* lista_por_asignar = lista_por_asignar->crearListaEnlazada();
-    lista_por_asignar->copiar_lista(lista_por_asignar, head);
-    ListaEnlazada* lista_no_asignadas = lista_no_asignadas->crearListaEnlazada();
-    vector<int> conflictos_asignadas;
-    vector<int> conflictos_no_asignadas;
-    while(lista_por_asignar->cabeza != nullptr){
-        conflictos_asignadas = num_conflictos(lista_asignadas, lista_por_asignar);
-        if(mayor_conflicto(conflictos_asignadas) == true){ //si hay una sección que tiene mas conflictos que los demas, esa es la que se asignará
-
-        }
-        else{}//si no se comprobará la lista de las por asignar y la que tenga mas conflictos es la que se asignará
-    }
+    
 }
 
 section* invertirLista(section* head) {
@@ -492,4 +491,47 @@ void guardar_resultado(section* head, string nombre_archivo, bool version_larga)
         out << "\n";
     }
     out.close();
+}
+
+bool conflictos_estudiantes(section* clase_no_asignada, section* clase_asignada){
+
+}
+
+vector<int> num_conflictos(ListaEnlazada* lista_asignadas, ListaEnlazada* lista_por_asignar){//simplemente cuento los conflictos de cada clase y los meto en un vector
+vector<int> num_conflictos;
+for (section* clase_no_asignada = lista_por_asignar->cabeza; clase_no_asignada != nullptr; clase_no_asignada = clase_no_asignada->next){
+    int conflictos = 0;
+    for(section* clase_asignada = lista_asignadas->cabeza; clase_asignada != nullptr; clase_asignada = clase_asignada->next){
+        if (clase_asignada->prof_ci == clase_no_asignada->prof_ci || conflictos_estudiantes(clase_no_asignada, clase_asignada)){
+            conflictos += 1;
+        }
+    }
+    num_conflictos.push_back(conflictos);
+}
+return num_conflictos;
+}
+
+void asignar_horarios_por_conflicto(section* head) {
+    ListaEnlazada* lista_asignadas = crearListaEnlazada();
+    ListaEnlazada* lista_por_asignar = crearListaEnlazada();
+    lista_por_asignar->copiar_lista(lista_por_asignar, head);
+    ListaEnlazada* lista_no_asignadas = crearListaEnlazada();
+    vector<int> conflictos_asignadas;
+    vector<int> conflictos_no_asignadas;
+    while(lista_por_asignar->cabeza != nullptr){
+        conflictos_asignadas = num_conflictos(lista_asignadas, lista_por_asignar); //de aqui para abajo las lineas no comenta
+        if(mayor_conflicto(conflictos_asignadas, lista_por_asignar) == true){ //si hay una sección que tiene mas conflictos que los demas, esa es la que se asignará
+            lista_no_asignadas->sig_asignar->horarios.push_back({asignar_horarios_inicio(lista_asignadas), asignar_horarios_final(lista_asignadas)}); //asigno el horario de inicio y fin
+            lista_asignadas->agregarNodoFinal(lista_asignadas ,lista_por_asignar->sig_asignar);//agrego el nodo a lista_asignada
+            lista_no_asignadas->eliminar_nodo(lista_por_asignar, lista_por_asignar->sig_asignar); //elimino el nodo de lista por asignar
+            conflictos_asignadas.clear();//limpio el vector para la siguiente iteración        
+        
+        }else{//si no, se comprobará la lista de las por asignar y la que tenga mas conflictos es la que se asignará
+            conflictos_no_asignadas = conflictos_totales(lista_asignadas, lista_por_asignar);//aparte de llenar el vector modifico lista por asignar, meto el nodo a tratar en sig
+            lista_no_asignadas->sig_asignar->horarios.push_back({asignar_horarios_inicio(lista_asignadas), asignar_horarios_final(lista_asignadas)});
+            lista_asignadas->agregarNodoFinal(lista_asignadas ,lista_por_asignar->sig_asignar);//agrego el nodo a lista_asignada
+            lista_no_asignadas->eliminar_nodo(lista_por_asignar, lista_por_asignar->sig_asignar); //elimino el nodo de lista por asignar
+            conflictos_no_asignadas.clear();//limpio el vector para la siguiente iteración       
+        }
+    }
 }
