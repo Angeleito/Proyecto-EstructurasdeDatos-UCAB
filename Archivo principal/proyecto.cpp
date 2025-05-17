@@ -273,7 +273,7 @@ bool hay_conflicto(section* s1, section* s2) {
 
 // Devuelve las horas disponibles para una sección, evitando conflictos
 vector<int> horas_disponibles(section* head, section* actual) {
-    vector<bool> ocupadas(13, false); // horas 1 a 12 (7:00 a 19:00)
+    vector<bool> ocupadas(12, false); // horas 1 a 12 (7:00 a 19:00)
     for (section* s = head; s != nullptr; s = s->next) {
         if (s == actual) break;
         if (hay_conflicto(s, actual)) {
@@ -283,7 +283,7 @@ vector<int> horas_disponibles(section* head, section* actual) {
         }
     }
     vector<int> libres;
-    for (int i = 1; i <= 12; ++i) if (!ocupadas[i]) libres.push_back(i);
+    for (int i = 1; i < 12; ++i) if (!ocupadas[i]) libres.push_back(i);
     return libres;
 }
 
@@ -313,6 +313,7 @@ void asignar_horarios_orden(section* head) {
                         contiguo = false;
                         break;
                     }
+                    if (!s->horarios.empty() && libres[idx] - s->horarios.back().second > tam) contiguo = false;
                 }
                 if (contiguo) {
                     s->horarios.push_back({libres[idx], libres[idx]+tam});
