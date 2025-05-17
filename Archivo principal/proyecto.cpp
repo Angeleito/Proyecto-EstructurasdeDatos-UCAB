@@ -410,9 +410,10 @@ void conflictos_asignadas(section* actual, section* head){
     vector<int> conflictos_no_asignadas;
     while(lista_por_asignar->cabeza != nullptr){
         conflictos_asignadas = num_conflictos(lista_asignadas, lista_por_asignar);
-        if(mayor_conflicto(conflictos_asignadas) == true){
+        if(mayor_conflicto(conflictos_asignadas) == true){ //si hay una sección que tiene mas conflictos que los demas, esa es la que se asignará
 
         }
+        else{}//si no se comprobará la lista de las por asignar y la que tenga mas conflictos es la que se asignará
     }
 }
 
