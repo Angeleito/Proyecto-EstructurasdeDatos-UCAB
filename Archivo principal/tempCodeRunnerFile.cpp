@@ -1,0 +1,1 @@
+lista_inv = invertirLista(head);
