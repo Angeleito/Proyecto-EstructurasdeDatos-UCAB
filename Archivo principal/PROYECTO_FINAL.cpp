@@ -645,7 +645,6 @@ bool mayor_conflicto(vector<int>& conflictos, ListaEnlazada* lista_por_asignar) 
     vector<int> conflictos_asignadas;
     vector<int> conflictos_no_asignadas;
     lista_por_asignar->sig_asignar = lista_por_asignar->cabeza;
-    cout << lista_por_asignar->cabeza->prof << endl;
     while(lista_por_asignar->cabeza->next != nullptr){
                             
         conflictos_asignadas = num_conflictos(lista_asignadas, lista_por_asignar); //de aqui para abajo las lineas no comenta
@@ -667,8 +666,6 @@ bool mayor_conflicto(vector<int>& conflictos, ListaEnlazada* lista_por_asignar) 
             lista_asignadas->agregarNodoFinal(lista_asignadas ,lista_por_asignar->sig_asignar);//agrego el nodo a lista_asignada
             conflictos_no_asignadas.clear();//limpio el vector para la siguiente iteración
         }
-        cout << "funciona";
     }
-    cout << "funciona";
     return lista_asignadas->cabeza;
  }
