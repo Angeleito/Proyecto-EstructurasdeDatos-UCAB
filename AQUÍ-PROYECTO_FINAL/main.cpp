@@ -1,4 +1,5 @@
-#include "header.h"
+#include "asignacion.h"
+#include "menu.h"
 
  section* ListaEnlazada::crearNodo(section* nodo) {
     section* nuevoNodo = new section;
