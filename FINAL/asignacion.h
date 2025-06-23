@@ -1,6 +1,16 @@
 #include "lectura_e_impresion.h"
+#include <map>
+#include <set>
+#include <string>
+
+// Cedula -> (dia 0-4) -> set de horas disponibles
+using DisponibilidadProfesor = std::map<std::string, std::map<int, std::set<int>>>;
+
+// Declaración de la función para leer la disponibilidad de profesores
+DisponibilidadProfesor leer_disponibilidad_profesores(const std::string& archivo);
 
 void asignar_horarios_orden(section* head);
+void asignar_horarios_general(section* head);
 bool hay_conflicto(section* s1, section* s2);
 vector<int> horas_disponibles(section* head, section* actual);
 vector<int> horas_disponibles_conflictos(section* head, section* actual);

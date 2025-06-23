@@ -1,0 +1,812 @@
+Asignacion horaria de la semana:
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Carlos Perez ci: 11111111
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+Marcos Perez ci: 31000014
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Nancy Martinez ci: 11111112
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Henry Marcano ci: 11111113
+Horario: Lunes 13:00 a 15:00, Lunes 15:00 a 17:00, Lunes 17:00 a 18:00
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Henry Marcano ci: 11111113
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+Henry Alvarez ci: 31000003
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Lisandro Alvarado ci: 11111114
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 11111112
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+Henry Alvarez ci: 31000003
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 11111112
+Horario: Martes 15:00 a 18:00
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 11111118
+Horario: Martes 15:00 a 18:00
+Estudiantes:
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+Henry Alvarez ci: 31000003
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 11111118
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ana Rodriguez ci: 11111115
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Roger Perez ci: 31000007
+Mauricio Perez ci: 31000008
+Nidia Vargas ci: 31000009
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ramon Aveledo ci: 11111116
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Eliseo Pereira ci: 31000010
+Carlos Martinez ci: 31000011
+Carmen Levi ci: 31000012
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Ana Cavalli ci: 11111117
+Horario: Lunes 13:00 a 15:00, Lunes 15:00 a 17:00, Lunes 17:00 a 18:00
+Estudiantes:
+Roger Perez ci: 31000007
+Mauricio Perez ci: 31000008
+Nidia Vargas ci: 31000009
+Eliseo Pereira ci: 31000010
+Carlos Martinez ci: 31000011
+Carmen Levi ci: 31000012
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Ana cavalli ci: 11111117
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Eliseo Pereira ci: 31000010
+Carlos Martinez ci: 31000011
+Carmen Levi ci: 31000012
+Alfredo Acosta ci: 31000013
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  ci: 
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Roger Perez ci: 31000007
+Mauricio Perez ci: 31000008
+Nidia Vargas ci: 31000009
+Alfredo Acosta ci: 31000013
+
+Curso: Identidad Liderazgo y Compromiso II UCAB-00002
+Profesor:  ci: 
+Horario: Miercoles 7:00 a 8:00, Miercoles 8:00 a 9:00
+Estudiantes:
+Ramon Perez ci: 31000004
+Carlos Martinez ci: 31000005
+Jose Acosta ci: 31000006
+Henry Alvarez ci: 31000003
+Maria Perez ci: 31000000
+Carlos Perez ci: 31000001
+Omar Acosta ci: 31000002
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Carlos Perez ci: 10111111
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Nancy Martinez ci: 10111112
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Henry Marcano ci: 10111113
+Horario: Lunes 13:00 a 15:00, Lunes 15:00 a 17:00, Lunes 17:00 a 18:00
+Estudiantes:
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Henry Marcano ci: 10111113
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+Henry Alvarez ci: 30000003
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Lisandro Alvarado ci: 10111114
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Carlos Perez ci: 10111111
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+Henry Alvarez ci: 30000003
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 10111112
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 10111118
+Horario: Martes 15:00 a 18:00
+Estudiantes:
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+Henry Alvarez ci: 30000003
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 10111118
+Horario: Miercoles 7:00 a 10:00
+Estudiantes:
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ana Rodriguez ci: 10111115
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Roger Perez ci: 30000007
+Mauricio Perez ci: 30000008
+Nidia Vargas ci: 30000009
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ramon Aveledo ci: 10111116
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Eliseo Pereira ci: 30000010
+Carlos Martinez ci: 30000011
+Carmen Levi ci: 30000012
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Ana Cavalli ci: 10111117
+Horario: Lunes 13:00 a 15:00, Lunes 15:00 a 17:00, Lunes 17:00 a 18:00
+Estudiantes:
+Roger Perez ci: 30000007
+Mauricio Perez ci: 30000008
+Nidia Vargas ci: 30000009
+Eliseo Pereira ci: 30000010
+Carlos Martinez ci: 30000011
+Carmen Levi ci: 30000012
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Ana cavalli ci: 10111117
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Eliseo Pereira ci: 30000010
+Carlos Martinez ci: 30000011
+Carmen Levi ci: 30000012
+Alfredo Acosta ci: 30000013
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  ci: 
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Roger Perez ci: 30000007
+Mauricio Perez ci: 30000008
+Nidia Vargas ci: 30000009
+Alfredo Acosta ci: 30000013
+
+Curso: Identidad Liderazgo y Compromiso II UCAB-00002
+Profesor:  ci: 
+Horario: Miercoles 10:00 a 11:00, Miercoles 11:00 a 12:00
+Estudiantes:
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+Henry Alvarez ci: 30000003
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Carlos Perez ci: 10111111
+Horario: Miercoles 7:00 a 9:00, Miercoles 12:00 a 14:00, Miercoles 14:00 a 16:00
+Estudiantes:
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Nancy Martinez ci: 10111112
+Horario: Martes 15:00 a 17:00, Miercoles 12:00 a 14:00, Miercoles 14:00 a 16:00
+Estudiantes:
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Henry Marcano ci: 10111113
+Horario: Miercoles 16:00 a 18:00, Jueves 7:00 a 9:00, Jueves 9:00 a 10:00
+Estudiantes:
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Henry Marcano ci: 10111113
+Horario: Jueves 10:00 a 12:00, Jueves 12:00 a 14:00, Jueves 14:00 a 15:00
+Estudiantes:
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+Henry Alvarez ci: 30000003
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Lisandro Alvarado ci: 10111114
+Horario: Jueves 10:00 a 12:00, Jueves 12:00 a 14:00, Miercoles 9:00 a 10:00
+Estudiantes:
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 10111112
+Horario: Jueves 15:00 a 18:00
+Estudiantes:
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+Henry Alvarez ci: 30000003
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 10111112
+Horario: Viernes 7:00 a 10:00
+Estudiantes:
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 10111118
+Horario: Viernes 7:00 a 10:00
+Estudiantes:
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+Henry Alvarez ci: 30000003
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 10111118
+Horario: Jueves 15:00 a 18:00
+Estudiantes:
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ana Rodriguez ci: 10111115
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 15:00 a 17:00
+Estudiantes:
+Roger Perez ci: 30000007
+Mauricio Perez ci: 30000008
+Nidia Vargas ci: 30000009
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ramon Aveledo ci: 10111116
+Horario: Martes 12:00 a 14:00, Martes 14:00 a 16:00, Martes 16:00 a 18:00
+Estudiantes:
+Eliseo Pereira ci: 30000010
+Carlos Martinez ci: 30000011
+Carmen Levi ci: 30000012
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Ana Cavalli ci: 10111117
+Horario: Miercoles 7:00 a 9:00, Miercoles 9:00 a 11:00, Miercoles 11:00 a 12:00
+Estudiantes:
+Roger Perez ci: 30000007
+Mauricio Perez ci: 30000008
+Nidia Vargas ci: 30000009
+Eliseo Pereira ci: 30000010
+Carlos Martinez ci: 30000011
+Carmen Levi ci: 30000012
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Ana cavalli ci: 10111117
+Horario: Miercoles 12:00 a 14:00, Miercoles 14:00 a 16:00, Miercoles 16:00 a 17:00
+Estudiantes:
+Eliseo Pereira ci: 30000010
+Carlos Martinez ci: 30000011
+Carmen Levi ci: 30000012
+Alfredo Acosta ci: 30000013
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  ci: 
+Horario: Jueves 7:00 a 10:00
+Estudiantes:
+Roger Perez ci: 30000007
+Mauricio Perez ci: 30000008
+Nidia Vargas ci: 30000009
+Alfredo Acosta ci: 30000013
+
+Curso: Identidad Liderazgo y Compromiso II UCAB-00002
+Profesor:  ci: 
+Horario: Viernes 10:00 a 11:00, Viernes 11:00 a 12:00
+Estudiantes:
+Ramon Perez ci: 30000004
+Carlos Martinez ci: 30000005
+Jose Acosta ci: 30000006
+Henry Alvarez ci: 30000003
+Maria Perez ci: 30000000
+Carlos Perez ci: 30000001
+Omar Acosta ci: 30000002
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Carlos Perez ci: 12111111
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Maria Perez ci: 29000000
+Carlos Perez ci: 29000001
+Omar Acosta ci: 29000002
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Nancy Martinez ci: 12111112
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Ramon Perez ci: 29000004
+Carlos Martinez ci: 29000005
+Jose Acosta ci: 29000006
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Henry Marcano ci: 12111113
+Horario: Lunes 13:00 a 15:00, Lunes 15:00 a 17:00, Lunes 17:00 a 18:00
+Estudiantes:
+Maria Perez ci: 29000000
+Carlos Perez ci: 29000001
+Omar Acosta ci: 29000002
+Ramon Perez ci: 29000004
+Carlos Martinez ci: 29000005
+Jose Acosta ci: 29000006
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Henry Marcano ci: 12111113
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Ramon Perez ci: 29000004
+Carlos Martinez ci: 29000005
+Jose Acosta ci: 29000006
+Henry Alvarez ci: 29000003
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Lisandro Alvarado ci: 12111114
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Maria Perez ci: 29000000
+Carlos Perez ci: 29000001
+Omar Acosta ci: 29000002
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 12111112
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Maria Perez ci: 29000000
+Carlos Perez ci: 29000001
+Omar Acosta ci: 29000002
+Henry Alvarez ci: 29000003
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 12111112
+Horario: Martes 15:00 a 18:00
+Estudiantes:
+Ramon Perez ci: 29000004
+Carlos Martinez ci: 29000005
+Jose Acosta ci: 29000006
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 12111118
+Horario: Martes 15:00 a 18:00
+Estudiantes:
+Maria Perez ci: 29000000
+Carlos Perez ci: 29000001
+Omar Acosta ci: 29000002
+Henry Alvarez ci: 29000003
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 12111118
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Ramon Perez ci: 29000004
+Carlos Martinez ci: 29000005
+Jose Acosta ci: 29000006
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ana Rodriguez ci: 12111115
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Roger Perez ci: 29000007
+Mauricio Perez ci: 29000008
+Nidia Vargas ci: 29000009
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ramon Aveledo ci: 12111116
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Eliseo Pereira ci: 29000010
+Carlos Martinez ci: 29000011
+Carmen Levi ci: 29000012
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Ana Cavalli ci: 12111117
+Horario: Lunes 13:00 a 15:00, Lunes 15:00 a 17:00, Lunes 17:00 a 18:00
+Estudiantes:
+Roger Perez ci: 29000007
+Mauricio Perez ci: 29000008
+Nidia Vargas ci: 29000009
+Eliseo Pereira ci: 29000010
+Carlos Martinez ci: 29000011
+Carmen Levi ci: 29000012
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Ana cavalli ci: 12111117
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Eliseo Pereira ci: 29000010
+Carlos Martinez ci: 29000011
+Carmen Levi ci: 29000012
+Alfredo Acosta ci: 29000013
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  ci: 
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Roger Perez ci: 29000007
+Mauricio Perez ci: 29000008
+Nidia Vargas ci: 29000009
+Alfredo Acosta ci: 29000013
+
+Curso: Identidad Liderazgo y Compromiso II UCAB-00002
+Profesor:  ci: 
+Horario: Miercoles 7:00 a 8:00, Miercoles 8:00 a 9:00
+Estudiantes:
+Ramon Perez ci: 29000004
+Carlos Martinez ci: 29000005
+Jose Acosta ci: 29000006
+Henry Alvarez ci: 29000003
+Maria Perez ci: 29000000
+Carlos Perez ci: 29000001
+Omar Acosta ci: 29000002
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Carlos Perez ci: 13111111
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Maria Perez ci: 28000000
+Carlos Perez ci: 28000001
+Omar Acosta ci: 28000002
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Nancy Martinez ci: 13111112
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Ramon Perez ci: 28000004
+Carlos Martinez ci: 28000005
+Jose Acosta ci: 28000006
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Henry Marcano ci: 13111113
+Horario: Lunes 13:00 a 15:00, Lunes 15:00 a 17:00, Lunes 17:00 a 18:00
+Estudiantes:
+Maria Perez ci: 28000000
+Carlos Perez ci: 28000001
+Omar Acosta ci: 28000002
+Ramon Perez ci: 28000004
+Carlos Martinez ci: 28000005
+Jose Acosta ci: 28000006
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Henry Marcano ci: 13111113
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Ramon Perez ci: 28000004
+Carlos Martinez ci: 28000005
+Jose Acosta ci: 28000006
+Henry Alvarez ci: 28000003
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Lisandro Alvarado ci: 13111114
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Maria Perez ci: 28000000
+Carlos Perez ci: 28000001
+Omar Acosta ci: 28000002
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 13111112
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Maria Perez ci: 28000000
+Carlos Perez ci: 28000001
+Omar Acosta ci: 28000002
+Henry Alvarez ci: 28000003
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 13111112
+Horario: Martes 15:00 a 18:00
+Estudiantes:
+Ramon Perez ci: 28000004
+Carlos Martinez ci: 28000005
+Jose Acosta ci: 28000006
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 13111118
+Horario: Martes 15:00 a 18:00
+Estudiantes:
+Maria Perez ci: 28000000
+Carlos Perez ci: 28000001
+Omar Acosta ci: 28000002
+Henry Alvarez ci: 28000003
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 13111118
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Ramon Perez ci: 28000004
+Carlos Martinez ci: 28000005
+Jose Acosta ci: 28000006
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ana Rodriguez ci: 13111115
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Roger Perez ci: 28000007
+Mauricio Perez ci: 28000008
+Nidia Vargas ci: 28000009
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ramon Aveledo ci: 13111116
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Eliseo Pereira ci: 28000010
+Carlos Martinez ci: 28000011
+Carmen Levi ci: 28000012
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Ana Cavalli ci: 13111117
+Horario: Lunes 13:00 a 15:00, Lunes 15:00 a 17:00, Lunes 17:00 a 18:00
+Estudiantes:
+Roger Perez ci: 28000007
+Mauricio Perez ci: 28000008
+Nidia Vargas ci: 28000009
+Eliseo Pereira ci: 28000010
+Carlos Martinez ci: 28000011
+Carmen Levi ci: 28000012
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Ana cavalli ci: 13111117
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Eliseo Pereira ci: 28000010
+Carlos Martinez ci: 28000011
+Carmen Levi ci: 28000012
+Alfredo Acosta ci: 28000013
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  ci: 
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Roger Perez ci: 28000007
+Mauricio Perez ci: 28000008
+Nidia Vargas ci: 28000009
+Alfredo Acosta ci: 28000013
+
+Curso: Identidad Liderazgo y Compromiso II UCAB-00002
+Profesor:  ci: 
+Horario: Miercoles 7:00 a 8:00, Miercoles 8:00 a 9:00
+Estudiantes:
+Ramon Perez ci: 28000004
+Carlos Martinez ci: 28000005
+Jose Acosta ci: 28000006
+Henry Alvarez ci: 28000003
+Maria Perez ci: 28000000
+Carlos Perez ci: 28000001
+Omar Acosta ci: 28000002
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Carlos Perez ci: 9111111
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Maria Perez ci: 32000000
+Carlos Perez ci: 32000001
+Omar Acosta ci: 32000002
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Nancy Martinez ci: 9111112
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Ramon Perez ci: 32000004
+Carlos Martinez ci: 32000005
+Jose Acosta ci: 32000006
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Henry Marcano ci: 9111113
+Horario: Lunes 13:00 a 15:00, Lunes 15:00 a 17:00, Lunes 17:00 a 18:00
+Estudiantes:
+Maria Perez ci: 32000000
+Carlos Perez ci: 32000001
+Omar Acosta ci: 32000002
+Ramon Perez ci: 32000004
+Carlos Martinez ci: 32000005
+Jose Acosta ci: 32000006
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Henry Marcano ci: 9111113
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Ramon Perez ci: 32000004
+Carlos Martinez ci: 32000005
+Jose Acosta ci: 32000006
+Henry Alvarez ci: 32000003
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Lisandro Alvarado ci: 9111114
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Maria Perez ci: 32000000
+Carlos Perez ci: 32000001
+Omar Acosta ci: 32000002
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 9111112
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Maria Perez ci: 32000000
+Carlos Perez ci: 32000001
+Omar Acosta ci: 32000002
+Henry Alvarez ci: 32000003
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  Nancy Martinez ci: 9111112
+Horario: Martes 15:00 a 18:00
+Estudiantes:
+Ramon Perez ci: 32000004
+Carlos Martinez ci: 32000005
+Jose Acosta ci: 32000006
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 9111118
+Horario: Martes 15:00 a 18:00
+Estudiantes:
+Maria Perez ci: 32000000
+Carlos Perez ci: 32000001
+Omar Acosta ci: 32000002
+Henry Alvarez ci: 32000003
+
+Curso: Calculo Diferencial FNG-02003
+Profesor:  Rodrigo Cabezas ci: 9111118
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Ramon Perez ci: 32000004
+Carlos Martinez ci: 32000005
+Jose Acosta ci: 32000006
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ana Rodriguez ci: 9111115
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Roger Perez ci: 32000007
+Mauricio Perez ci: 32000008
+Nidia Vargas ci: 32000009
+
+Curso: Algoritmos y Estructuras de Datos INFO-02002 
+Profesor:  Ramon Aveledo ci: 9111116
+Horario: Lunes 7:00 a 9:00, Lunes 9:00 a 11:00, Lunes 11:00 a 13:00
+Estudiantes:
+Eliseo Pereira ci: 32000010
+Carlos Martinez ci: 32000011
+Carmen Levi ci: 32000012
+
+Curso: Matematicas Discretas INFO-02000
+Profesor:  Ana Cavalli ci: 9111117
+Horario: Lunes 13:00 a 15:00, Lunes 15:00 a 17:00, Lunes 17:00 a 18:00
+Estudiantes:
+Roger Perez ci: 32000007
+Mauricio Perez ci: 32000008
+Nidia Vargas ci: 32000009
+Eliseo Pereira ci: 32000010
+Carlos Martinez ci: 32000011
+Carmen Levi ci: 32000012
+
+Curso: Algebra Lineal FING-02001
+Profesor:  Ana cavalli ci: 9111117
+Horario: Martes 7:00 a 9:00, Martes 9:00 a 11:00, Martes 11:00 a 12:00
+Estudiantes:
+Eliseo Pereira ci: 32000010
+Carlos Martinez ci: 32000011
+Carmen Levi ci: 32000012
+Alfredo Acosta ci: 32000013
+
+Curso: Algoritmos y programacion INFO-02001
+Profesor:  ci: 
+Horario: Martes 12:00 a 15:00
+Estudiantes:
+Roger Perez ci: 32000007
+Mauricio Perez ci: 32000008
+Nidia Vargas ci: 32000009
+Alfredo Acosta ci: 32000013
+
+Curso: Identidad Liderazgo y Compromiso II UCAB-00002
+Profesor:  ci: 
+Horario: Miercoles 7:00 a 8:00, Miercoles 8:00 a 9:00
+Estudiantes:
+Ramon Perez ci: 32000004
+Carlos Martinez ci: 32000005
+Jose Acosta ci: 32000006
+Henry Alvarez ci: 32000003
+Maria Perez ci: 32000000
+Carlos Perez ci: 32000001
+Omar Acosta ci: 32000002
+
