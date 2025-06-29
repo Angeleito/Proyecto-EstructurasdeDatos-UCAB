@@ -1,5 +1,9 @@
-#include "asignacion.h"
-#include "menu.h"
+#include "asignacion_datos.h"
+#include "busqueda_datos.h"
+#include "entrada_datos.h"
+#include "estructuras_datos.h"
+#include "salida_datos.h"
+
 #include <map>
 #include <set>
 string archivo_disponibilidad = "profesores.txt"; // Valor por defecto
@@ -7,14 +11,6 @@ void imprimir_materias_por_dia(section* head);
 void guardar_materias_por_dia(section* head, const std::string& nombre_archivo);
 using DisponibilidadProfesor = std::map<std::string, std::map<int, std::set<int>>>;
 // Cedula -> (dia 0-4) -> set de horas disponibles
-
-// --- Árbol Binario de Búsqueda para cédulas ---
-struct NodoABB {
-    std::string cedula;
-    NodoABB* izq;
-    NodoABB* der;
-    NodoABB(const std::string& c) : cedula(c), izq(nullptr), der(nullptr) {}
-};
 
 NodoABB* insertarABB(NodoABB* raiz, const std::string& cedula) {
     if (!raiz) return new NodoABB(cedula);
@@ -184,7 +180,7 @@ while (!salir) {
     clear_screen();
     cout << "1. Leer archivo de secciones (" << estado << ")\n";
     cout << "2. Cargar archivo de disponibilidad de profesores\n";
-    cout << "3. Cargar archivo de cédulas de estudiantes inscritos\n";
+    cout << "3. Cargar archivo de cedulas de estudiantes inscritos\n";
     cout << "4. Asignar horarios (orden original)\n";
     cout << "5. Asignar horarios (orden inverso)\n";
     cout << "6. Asignar horarios (estrategia por mayor conflicto)\n";
@@ -869,7 +865,7 @@ void asignar_horarios_general(section* head) {
                 }
             }
             if (!asignado) {
-                cout << "No se pudo asignar el bloque de tamaño " << tam << " para la materia " << s->name_class << " (" << s->prof << ")\n";
+                cout << "No se pudo asignar el bloque de tamano " << tam << " para la materia " << s->name_class << " (" << s->prof << ")\n";
                 break; // Si no se pudo asignar el bloque, salir
             }
         }

@@ -2,7 +2,6 @@
 #include <map>
 #include <set>
 #include <string>
-
 // Cedula -> (dia 0-4) -> set de horas disponibles
 using DisponibilidadProfesor = std::map<std::string, std::map<int, std::set<int>>>;
 

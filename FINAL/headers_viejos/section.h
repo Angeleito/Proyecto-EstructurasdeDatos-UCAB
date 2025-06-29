@@ -17,3 +17,5 @@ struct section {
     int num_conflictos;
     section* next;                          // Puntero al siguiente nodo de la lista enlazada de secciones
  };
+
+ typedef section* lista_secciones;
