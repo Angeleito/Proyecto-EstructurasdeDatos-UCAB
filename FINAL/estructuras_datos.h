@@ -47,7 +47,6 @@ struct ListaEnlazada {
  void copiar_lista(ListaEnlazada* destino, section* origen_head);
  void limpiar_lista(ListaEnlazada* lista);
  void expulsar_nodo(ListaEnlazada* ListaEnlazada,section* nodo);
- section* ListaEnlazada::crearNodo(section* nodo);
  };
 
  

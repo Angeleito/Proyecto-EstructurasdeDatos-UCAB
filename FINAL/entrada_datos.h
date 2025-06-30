@@ -10,6 +10,7 @@ section* leer_secciones(string nombre_archivo);
 void guardar_resultado(section* head, string nombre_archivo, bool version_larga);
 DisponibilidadProfesor leer_disponibilidad_profesores(const std::string& archivo);
 NodoABB* leer_cedulas_estudiantes(const std::string& archivo);
+void guardar_materias_por_dia(section* head, const std::string& nombre_archivo);
 
 
 #endif

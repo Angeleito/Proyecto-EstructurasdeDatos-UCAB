@@ -1,7 +1,7 @@
 #ifndef ASIGNACION_DATOS_H 
 #define ASIGNACION_DATOS_H 
-
 #include "estructuras_datos.h"
+extern std::map<std::string, std::map<int, std::set<int>>> disponibilidad_profesores;
 
 void asignar_horarios_orden(section* head);
 void asignar_horarios_general(section* head);
@@ -14,5 +14,6 @@ bool mayor_conflicto(vector<int>& conflictos_asignadas, ListaEnlazada* conflicto
 void asignar_horarios(ListaEnlazada* lista_por_asignar, ListaEnlazada* lista_asignadas);
 vector<int> conflictos_totales(ListaEnlazada*,ListaEnlazada*);
 bool conflictos_estudiantes(section* clase_no_asignada,section* clase_asignada);
+
 
 #endif
