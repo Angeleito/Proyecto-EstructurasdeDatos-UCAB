@@ -22,23 +22,23 @@ struct section {
     int num_conflictos;
     section* next;                          // Puntero al siguiente nodo de la lista enlazada de secciones
  };
- typedef section* lista_secciones;
+ typedef section* lista_secciones;      //tipo lista_secciones para mayor legibilidad en futuras funciones
 
- struct NodoABB {
+ struct NodoABB {               //tipo de dato Arbol Binario de Busqueda
     std::string cedula;
     NodoABB* izq;
     NodoABB* der;
-    NodoABB(const std::string& c) : cedula(c), izq(nullptr), der(nullptr) {}
+    NodoABB(const std::string& c) : cedula(c), izq(nullptr), der(nullptr) {} //constructor del tipo de dato ABB
 };
-NodoABB* insertarABB(NodoABB* raiz, const std::string& cedula);
-bool buscarABB(NodoABB* raiz, const std::string& cedula);
-void liberarABB(NodoABB* raiz);
-NodoABB* abb_estudiantes_secciones(lista_secciones head);
-void estudiantes_no_en_secciones(NodoABB* raiz_inscritos, NodoABB* raiz_secciones, std::vector<std::string>& faltantes);
-void estudiantes_no_inscritos(NodoABB* raiz_secciones, NodoABB* raiz_inscritos, std::vector<std::string>& sobrantes);
+NodoABB* insertarABB(NodoABB* raiz, const std::string& cedula);  //funcion para insertar elementos al ABB
+bool buscarABB(NodoABB* raiz, const std::string& cedula);   //busca un elemento en el arbol ABB
+void liberarABB(NodoABB* raiz);            //convierte al ABB en un arbol vacío
+NodoABB* abb_estudiantes_secciones(lista_secciones head);      //llena un ABB con lo estudiantes que estan en una sección
+void estudiantes_no_en_secciones(NodoABB* raiz_inscritos, NodoABB* raiz_secciones, std::vector<std::string>& faltantes);//llena un ABB con lo estudiantes que no estan en una sección
+void estudiantes_no_inscritos(NodoABB* raiz_secciones, NodoABB* raiz_inscritos, std::vector<std::string>& sobrantes);  //llena un ABB con los estudiantes no inscritos
 
 
-struct ListaEnlazada {
+struct ListaEnlazada {  //tipo de dato lista_enlazada, se crea para mayor legibilidad
     section* cabeza;
     section* sig_asignar;
  section* crearNodo(lista_secciones nodo);
@@ -54,7 +54,7 @@ struct ListaEnlazada {
 void liberar_lista(lista_secciones head);
 section* invertirLista(lista_secciones head);
 
-// Cedula -> (dia 0-4) -> set de horas disponibles
+//tipo de dato complejo, es un tipo de dato que va a almacenar el nombre del profesor, un map con los dias de la semana y las horas disponible que tiene cada dia
 using DisponibilidadProfesor = std::map<std::string, std::map<int, std::set<int>>>;
 
 
