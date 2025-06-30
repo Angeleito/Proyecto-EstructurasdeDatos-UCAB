@@ -4,6 +4,6 @@
 
 void mostrar_todas_las_secciones(lista_secciones head);
 void imprimir_resultado(lista_secciones head, bool version_larga);
-void imprimir_materias_por_dia(lista_secciones head);
+void imprimir_materias_por_dia(lista_secciones head);  //imprime las materias clasificadas por dia de la semana
 
 #endif

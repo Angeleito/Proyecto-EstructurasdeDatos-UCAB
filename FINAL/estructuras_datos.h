@@ -54,7 +54,7 @@ struct ListaEnlazada {  //tipo de dato lista_enlazada, se crea para mayor legibi
 void liberar_lista(lista_secciones head);
 section* invertirLista(lista_secciones head);
 
-//tipo de dato complejo, es un tipo de dato que va a almacenar el nombre del profesor, un map con los dias de la semana y las horas disponible que tiene cada dia
+//tipo de dato complejo, es un tipo de dato que va a almacenar la cedula del profesor, un map con los dias de la semana y las horas disponible que tiene cada dia
 using DisponibilidadProfesor = std::map<std::string, std::map<int, std::set<int>>>;
 
 

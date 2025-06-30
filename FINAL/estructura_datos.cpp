@@ -84,7 +84,7 @@ section* ListaEnlazada::crearNodo(lista_secciones nodo) { // funcion método de 
     section* actual_origen = origen_head;
     section* ultimo_destino = nullptr;
 
-    while (actual_origen != nullptr) {
+    while (actual_origen != nullptr) { // mientras no sea vacio, entonces copie el nodo
         section* nuevo_nodo = new section;
         nuevo_nodo->name_class = actual_origen->name_class;
         nuevo_nodo->prof = actual_origen->prof;
@@ -95,12 +95,12 @@ section* ListaEnlazada::crearNodo(lista_secciones nodo) { // funcion método de 
         nuevo_nodo->num_conflictos = actual_origen->num_conflictos;
         nuevo_nodo->next = nullptr;
 
-        if (destino->cabeza == nullptr) {
+        if (destino->cabeza == nullptr) { //si el destino es vacio inserte 
             destino->cabeza = nuevo_nodo;
         } else {
-            ultimo_destino->next = nuevo_nodo;
+            ultimo_destino->next = nuevo_nodo; //sino siga copiando la lista
         }
-        ultimo_destino = nuevo_nodo;
+        ultimo_destino = nuevo_nodo;   
         actual_origen = actual_origen->next;
     }
  }
@@ -113,7 +113,7 @@ section* ListaEnlazada::crearNodo(lista_secciones nodo) { // funcion método de 
         actual = siguiente;
     }
  }
- void ListaEnlazada::expulsar_nodo(ListaEnlazada* ListaEnlazada,lista_secciones nodo){
+ void ListaEnlazada::expulsar_nodo(ListaEnlazada* ListaEnlazada,lista_secciones nodo){// Va buscando el nodo en cuestion dentro de una lista enlazada para expulsarlo
     section* nodo_actual = ListaEnlazada->cabeza;
     section* nodo_siguiente = ListaEnlazada->cabeza->next;
     while(nodo_siguiente != nullptr){

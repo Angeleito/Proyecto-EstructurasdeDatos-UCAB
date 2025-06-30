@@ -2,14 +2,15 @@
 #include "estructuras_datos.h"
 #include "asignacion_datos.h"
 #include "salida_datos.h"
-string archivo_disponibilidad = "profesores.txt";
+string archivo_disponibilidad = "profesores.txt";  //valor predeterminado
+
 NodoABB* leer_cedulas_estudiantes(const std::string& archivo) {
     NodoABB* raiz = nullptr;
     std::ifstream in(archivo);
     std::string cedula;
     while (getline(in, cedula)) {
-        if (!cedula.empty())
-            raiz = insertarABB(raiz, cedula);
+        if (!cedula.empty()) //inserta todas las lineas no vacias del archivo de cedulas
+            raiz = insertarABB(raiz, cedula); 
     }
     return raiz;
 }
@@ -40,10 +41,10 @@ while (!salir) {
     cout << "Seleccione una opcion: ";
     cin >> opcion;
     cin.ignore();
-    if (std::cin.fail()) {
+    if (std::cin.fail()) { //si ingresa texto en el menu esto se ejecuta
         std::cout << "Entrada invalida. Debe ingresar un numero entero.\n";
         std::cin.clear();
-        std::cin.ignore(10000, '\n');
+        std::cin.ignore(10000, '\n'); //limpia el buffer de entradas para evitar errores futuros
         pause();
         continue;
     }
@@ -53,8 +54,8 @@ while (!salir) {
             // Leer archivo de secciones
             cout << "Ingrese el nombre del archivo de entrada: ";
             getline(cin, archivo_entrada);
-            liberar_lista(head);
-            head = leer_secciones(archivo_entrada);
+            liberar_lista(head); // limpia la lista enlazada antes de trabajar con ella
+            head = leer_secciones(archivo_entrada); //lee las secciones del archivo de entrada y almacena la informacion en una lista enlazada
             if (head) cout << "Archivo cargado correctamente.\n", estado = "Cargado";
             else cout << "Error al cargar el archivo.\n";
             pause();
@@ -172,10 +173,10 @@ while (!salir) {
             } else if (!abb_inscritos) {
                 cout << "Primero debe cargar el archivo de cédulas de estudiantes inscritos.\n";
             } else {
-                NodoABB* abb_secciones = abb_estudiantes_secciones(head);
+                NodoABB* abb_secciones = abb_estudiantes_secciones(head); //crea un ABB con los estudiantes que estan en al menos una seccion
                 std::vector<std::string> no_en_secciones, no_inscritos;
-                estudiantes_no_en_secciones(abb_inscritos, abb_secciones, no_en_secciones);
-                estudiantes_no_inscritos(abb_secciones, abb_inscritos, no_inscritos);
+                estudiantes_no_en_secciones(abb_inscritos, abb_secciones, no_en_secciones);//crea un ABB con los estudiantes que no estan en ninguna seccion
+                estudiantes_no_inscritos(abb_secciones, abb_inscritos, no_inscritos); //crea un ABB con los estudiantes que no estan inscritos
 
                 cout << "\nEstudiantes inscritos que NO están en ninguna sección:\n";
                 for (auto& c : no_en_secciones) cout << c << "\n";
@@ -288,7 +289,7 @@ DisponibilidadProfesor leer_disponibilidad_profesores(const std::string& archivo
     std::string linea, cedula;
     std::map<std::string, int> dias = {{"Lunes",0},{"Martes",1},{"Miercoles",2},{"Jueves",3},{"Viernes",4}};
     while (getline(in, linea)) {
-        if (linea.find("Cedula:") != std::string::npos) {
+        if (linea.find("Cedula:") != std::string::npos) {  //se verifica si la linea es de cedula o de dia de semana y de alli se decide como extraer la informacion
             cedula = linea.substr(linea.find(":")+1);
             cedula.erase(0, cedula.find_first_not_of(" \t"));
         } else {
@@ -298,7 +299,7 @@ DisponibilidadProfesor leer_disponibilidad_profesores(const std::string& archivo
                     std::stringstream ss(linea.substr(linea.find(":")+1));
                     int h;
                     while (ss >> h) horas.insert(h);
-                    disp[cedula][par.second] = horas;
+                    disp[cedula][par.second] = horas;  //como trabajamos con map estamos accediendo a el mediante [cedula][dia]
                 }
             }
         }
@@ -316,7 +317,7 @@ DisponibilidadProfesor leer_disponibilidad_profesores(const std::string& archivo
   // Guarda el resultado en un archivo
 void guardar_resultado(lista_secciones head, string nombre_archivo, bool version_larga) {
     const vector<string> dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
-    ofstream out(nombre_archivo);
+    ofstream out(nombre_archivo); 
     out << "Asignacion horaria de la semana:\n";
     for (section* s = head; s != nullptr; s = s->next) {
         out << "Curso: " << s->name_class << "\n";
@@ -328,7 +329,7 @@ void guardar_resultado(lista_secciones head, string nombre_archivo, bool version
             int hora_ini = ini % 100;
             int hora_fin = fin % 100;
             out << dias[dia] << " " << (6 + hora_ini) << ":00 a " << (6 + hora_fin) << ":00";
-            if (&h != &s->horarios.back()) out << ", ";
+            if (&h != &s->horarios.back()) out << ", "; //comprueba si ha llegado al final del horario
         }
         out << "\n";
         if (version_larga) {
@@ -364,7 +365,7 @@ void guardar_resultado(lista_secciones head, string nombre_archivo, bool version
             std::vector<std::pair<int, int>> bloques_dia;
             for (auto& h : s->horarios) {
                 int h_dia = h.first / 100;
-                if (h_dia == dia) {
+                if (h_dia == dia) {  //si corresponde al mismo dia, añadalo al vector
                     bloques_dia.push_back(h);
                 }
             }
