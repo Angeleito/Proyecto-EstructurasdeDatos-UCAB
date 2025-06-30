@@ -314,7 +314,7 @@ DisponibilidadProfesor leer_disponibilidad_profesores(const std::string& archivo
  }
 
   // Guarda el resultado en un archivo
-void guardar_resultado(section* head, string nombre_archivo, bool version_larga) {
+void guardar_resultado(lista_secciones head, string nombre_archivo, bool version_larga) {
     const vector<string> dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
     ofstream out(nombre_archivo);
     out << "Asignacion horaria de la semana:\n";
@@ -350,7 +350,7 @@ void guardar_resultado(section* head, string nombre_archivo, bool version_larga)
  #endif
  }
 
- void guardar_materias_por_dia(section* head, const std::string& nombre_archivo) {
+ void guardar_materias_por_dia(lista_secciones head, const std::string& nombre_archivo) {
     const std::vector<std::string> dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
     std::ofstream out(nombre_archivo);
     if (!out.is_open()) {

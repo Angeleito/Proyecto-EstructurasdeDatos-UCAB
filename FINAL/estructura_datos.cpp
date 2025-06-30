@@ -20,7 +20,7 @@ void liberarABB(NodoABB* raiz) {
     delete raiz;
 }
 
-NodoABB* abb_estudiantes_secciones(section* head) {
+NodoABB* abb_estudiantes_secciones(lista_secciones head) {
     NodoABB* raiz = nullptr;
     for (section* s = head; s != nullptr; s = s->next) {
         for (auto& est : s->students) {
@@ -46,7 +46,7 @@ void estudiantes_no_inscritos(NodoABB* raiz_secciones, NodoABB* raiz_inscritos, 
     estudiantes_no_inscritos(raiz_secciones->der, raiz_inscritos, sobrantes);
 }
 
-section* ListaEnlazada::crearNodo(section* nodo) {
+section* ListaEnlazada::crearNodo(lista_secciones nodo) {
     section* nuevoNodo = new section;
     nuevoNodo->name_class = nodo->name_class;
     nuevoNodo->prof = nodo->prof;
@@ -59,14 +59,14 @@ section* ListaEnlazada::crearNodo(section* nodo) {
     return nuevoNodo;
 }
 
- section* ListaEnlazada::copiar_cabeza (section* nodo) {
+ section* ListaEnlazada::copiar_cabeza (lista_secciones nodo) {
     section* nuevoNodo = new section;
     nuevoNodo = nodo;
     return nuevoNodo;
  }
 
  // Función para añadir un nodo al final de la lista
- void ListaEnlazada::agregarNodoFinal(ListaEnlazada* lista, section* nodo) {
+ void ListaEnlazada::agregarNodoFinal(ListaEnlazada* lista, lista_secciones nodo) {
     section* nuevoNodo = crearNodo(nodo);
 
     if (lista->cabeza == nullptr) {
@@ -80,7 +80,7 @@ section* ListaEnlazada::crearNodo(section* nodo) {
     }
     actual->next = nuevoNodo;
 }
- void ListaEnlazada::copiar_lista(ListaEnlazada* destino, section* origen_head) {
+ void ListaEnlazada::copiar_lista(ListaEnlazada* destino, lista_secciones origen_head) {
     section* actual_origen = origen_head;
     section* ultimo_destino = nullptr;
 
@@ -113,7 +113,7 @@ section* ListaEnlazada::crearNodo(section* nodo) {
         actual = siguiente;
     }
  }
- void ListaEnlazada::expulsar_nodo(ListaEnlazada* ListaEnlazada,section* nodo){
+ void ListaEnlazada::expulsar_nodo(ListaEnlazada* ListaEnlazada,lista_secciones nodo){
     section* nodo_actual = ListaEnlazada->cabeza;
     section* nodo_siguiente = ListaEnlazada->cabeza->next;
     while(nodo_siguiente != nullptr){
@@ -138,7 +138,7 @@ section* ListaEnlazada::crearNodo(section* nodo) {
  }
 
   // Libera la memoria de la lista enlazada de secciones
- void liberar_lista(section* head) {
+ void liberar_lista(lista_secciones head) {
     while (head) {
         section* temp = head;
         head = head->next;
@@ -146,7 +146,7 @@ section* ListaEnlazada::crearNodo(section* nodo) {
     }
  }
 
-  section* invertirLista(section* head) {
+  section* invertirLista(lista_secciones head) {
     section* anterior = nullptr;
     section* actual = head;
     section* siguienteTemporal = nullptr;

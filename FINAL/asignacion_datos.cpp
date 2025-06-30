@@ -97,7 +97,7 @@ void asignar_horarios(ListaEnlazada* lista_por_asignar, ListaEnlazada* lista_asi
     }
 }
 
-section* asignar_horarios_por_conflicto(section* head) {
+section* asignar_horarios_por_conflicto(lista_secciones head) {
     ListaEnlazada* lista_original = crearListaEnlazada();
     lista_original->copiar_lista(lista_original, head);
     ListaEnlazada* lista_asignadas = crearListaEnlazada();
@@ -134,7 +134,7 @@ section* asignar_horarios_por_conflicto(section* head) {
     return resultado;
 }
 
-void asignar_horarios_general(section* head) {
+void asignar_horarios_general(lista_secciones head) {
     for (section* s = head; s != nullptr; s = s->next) {
         s->horarios.clear();
         const int dias_totales = 5; // Lunes a Viernes
@@ -207,7 +207,7 @@ void asignar_horarios_general(section* head) {
 }
 
  // Devuelve true si hay conflicto entre dos secciones (profesor o estudiante en común)
- bool hay_conflicto(section* s1, section* s2) {
+ bool hay_conflicto(lista_secciones s1, lista_secciones s2) {
     if (s1->prof_ci == s2->prof_ci && !s1->prof_ci.empty() && !s2->prof_ci.empty()) return true;
     for (auto& est1 : s1->students) {
         for (auto& est2 : s2->students) {
@@ -218,7 +218,7 @@ void asignar_horarios_general(section* head) {
  }
 
  // Devuelve las horas disponibles para una sección, evitando conflictos
- vector<int> horas_disponibles(section* head, section* actual) {
+ vector<int> horas_disponibles(lista_secciones head, lista_secciones actual) {
     vector<bool> ocupadas(12, false); // horas 1 a 12 (7:00 a 19:00)
     for (section* s = head; s != nullptr; s = s->next) {
         if (s == actual) break;
@@ -233,7 +233,7 @@ void asignar_horarios_general(section* head) {
     return libres;
  }
 
- vector<int> horas_disponibles_conflictos(section* head, section* actual) {
+ vector<int> horas_disponibles_conflictos(lista_secciones head, lista_secciones actual) {
     vector<bool> ocupadas(12, false); // horas 1 a 12 (7:00 a 19:00)
     for (section* s = head; s != nullptr; s = s->next) {
             for (auto& h : s->horarios) {
@@ -245,7 +245,7 @@ void asignar_horarios_general(section* head) {
     return libres;
  }
 
-bool conflictos_estudiantes(section* clase_no_asignada, section* clase_asignada){
+bool conflictos_estudiantes(lista_secciones clase_no_asignada, lista_secciones clase_asignada){
     string estudiante_no_asignada;
     string estudiante_asignada;
     for (int i = 0; i < clase_no_asignada->students.size(); i++){

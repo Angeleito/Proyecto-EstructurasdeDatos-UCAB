@@ -1,7 +1,7 @@
 #include "salida_datos.h"
 
  // Muestra todas las secciones/materias disponibles
- void mostrar_todas_las_secciones(section* head) {
+ void mostrar_todas_las_secciones(lista_secciones head) {
     cout << "Secciones/Materias disponibles:\n";
     for (section* s = head; s != nullptr; s = s->next) {
         cout << "- " << s->name_class << endl;
@@ -9,7 +9,7 @@
  }
 
  // Imprime el resultado por pantalla
-void imprimir_resultado(section* head, bool version_larga) {
+void imprimir_resultado(lista_secciones head, bool version_larga) {
     const vector<string> dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
     cout << "Asignacion horaria de la semana:\n";
     for (section* s = head; s != nullptr; s = s->next) {
@@ -35,7 +35,7 @@ void imprimir_resultado(section* head, bool version_larga) {
     }
 }
 
-void imprimir_materias_por_dia(section* head) {
+void imprimir_materias_por_dia(lista_secciones head) {
     const std::vector<std::string> dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
     for (int dia = 0; dia < 5; ++dia) {
         std::cout << "Dia " << dias[dia] << ":\n";

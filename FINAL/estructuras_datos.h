@@ -33,7 +33,7 @@ struct section {
 NodoABB* insertarABB(NodoABB* raiz, const std::string& cedula);
 bool buscarABB(NodoABB* raiz, const std::string& cedula);
 void liberarABB(NodoABB* raiz);
-NodoABB* abb_estudiantes_secciones(section* head);
+NodoABB* abb_estudiantes_secciones(lista_secciones head);
 void estudiantes_no_en_secciones(NodoABB* raiz_inscritos, NodoABB* raiz_secciones, std::vector<std::string>& faltantes);
 void estudiantes_no_inscritos(NodoABB* raiz_secciones, NodoABB* raiz_inscritos, std::vector<std::string>& sobrantes);
 
@@ -41,18 +41,18 @@ void estudiantes_no_inscritos(NodoABB* raiz_secciones, NodoABB* raiz_inscritos, 
 struct ListaEnlazada {
     section* cabeza;
     section* sig_asignar;
- section* crearNodo(section* nodo);
- section* copiar_cabeza (section* nodo);
- void agregarNodoFinal(ListaEnlazada* lista, section* nodo);
- void copiar_lista(ListaEnlazada* destino, section* origen_head);
+ section* crearNodo(lista_secciones nodo);
+ section* copiar_cabeza (lista_secciones nodo);
+ void agregarNodoFinal(ListaEnlazada* lista, lista_secciones nodo);
+ void copiar_lista(ListaEnlazada* destino, lista_secciones origen_head);
  void limpiar_lista(ListaEnlazada* lista);
- void expulsar_nodo(ListaEnlazada* ListaEnlazada,section* nodo);
+ void expulsar_nodo(ListaEnlazada* ListaEnlazada,lista_secciones nodo);
  };
 
  
  ListaEnlazada* crearListaEnlazada();
-void liberar_lista(section* head);
-section* invertirLista(section* head);
+void liberar_lista(lista_secciones head);
+section* invertirLista(lista_secciones head);
 
 // Cedula -> (dia 0-4) -> set de horas disponibles
 using DisponibilidadProfesor = std::map<std::string, std::map<int, std::set<int>>>;
