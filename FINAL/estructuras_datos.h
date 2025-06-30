@@ -46,7 +46,7 @@ struct ListaEnlazada {  //tipo de dato lista_enlazada, se crea para mayor legibi
  void agregarNodoFinal(ListaEnlazada* lista, lista_secciones nodo);
  void copiar_lista(ListaEnlazada* destino, lista_secciones origen_head);
  void limpiar_lista(ListaEnlazada* lista);
- void expulsar_nodo(ListaEnlazada* ListaEnlazada,lista_secciones nodo);
+ void expulsar_nodo(ListaEnlazada* lista_referencia, lista_secciones nodo_a_expulsar);
  };
 
  

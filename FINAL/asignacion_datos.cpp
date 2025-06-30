@@ -36,6 +36,7 @@ void asignar_horarios(ListaEnlazada* lista_por_asignar, ListaEnlazada* lista_asi
     lista_por_asignar->sig_asignar->horarios.clear();
     const int dias_totales = 5; // Lunes a Viernes
     const int horas_por_dia = 11; // 7am a 6pm (1 a 11)
+    int idx = 0, bloques_asignados = 0, horas_asignadas = 0;
     for (int b = 0; b < lista_por_asignar->sig_asignar->blocks.size(); ++b) {
         int tam = lista_por_asignar->sig_asignar->blocks[b];
         bool asignado = false;
@@ -83,6 +84,7 @@ void asignar_horarios(ListaEnlazada* lista_por_asignar, ListaEnlazada* lista_asi
                     // Asignar bloque en este día
                     lista_por_asignar->sig_asignar->horarios.push_back({dia * 100 + hora, dia * 100 + hora + tam});
                     asignado = true;
+                    bloques_asignados+= 1;
                     break;
                 }
             }
@@ -92,7 +94,7 @@ void asignar_horarios(ListaEnlazada* lista_por_asignar, ListaEnlazada* lista_asi
             cout << "No se pudo asignar el bloque de tamaño " << tam
                 << " para la materia " << lista_por_asignar->sig_asignar->name_class
                 << " (" << lista_por_asignar->sig_asignar->prof << ")\n";
-            break;
+            continue;
         }
     }
 }
@@ -139,10 +141,15 @@ void asignar_horarios_general(lista_secciones head) {
         s->horarios.clear();
         const int dias_totales = 5; // Lunes a Viernes
         const int horas_por_dia = 11; // 7am a 6pm (1 a 11)
+        int asignadas = 0;
         for (int b = 0; b < s->blocks.size(); ++b) {
             int tam = s->blocks[b];
             bool asignado = false;
             for (int dia = 0; dia < dias_totales && !asignado; ++dia) {
+                if (asignadas >= 2){ asignadas = 0;
+                continue;}
+                if (s->blocks == vector<int> {2,2,1} && asignadas == 1) {asignadas = 0;
+                continue;}
                 vector<bool> ocupadas(horas_por_dia + 1, false); // 1 a 11
                 // Marcar ocupadas por conflictos con secciones anteriores
                 for (section* prev = head; prev != s; prev = prev->next) {
@@ -189,18 +196,21 @@ void asignar_horarios_general(lista_secciones head) {
                                 disponible = false;
                                 break;
                             }
+                            
                         }
                         if (disponible) {
                             s->horarios.push_back({dia * 100 + hora, dia * 100 + hora + tam});
                             asignado = true;
+                            asignadas++;
                             break;
                         }
                     }
                 }
+                continue;
             }
             if (!asignado) {
                 cout << "No se pudo asignar el bloque de tamano " << tam << " para la materia " << s->name_class << " (" << s->prof << ")\n";
-                break; // Si no se pudo asignar el bloque, salir
+                continue; // Si no se pudo asignar el bloque, salir
             }
         }
     }

@@ -113,23 +113,37 @@ section* ListaEnlazada::crearNodo(lista_secciones nodo) { // funcion método de 
         actual = siguiente;
     }
  }
- void ListaEnlazada::expulsar_nodo(ListaEnlazada* ListaEnlazada,lista_secciones nodo){// Va buscando el nodo en cuestion dentro de una lista enlazada para expulsarlo
-    section* nodo_actual = ListaEnlazada->cabeza;
-    section* nodo_siguiente = ListaEnlazada->cabeza->next;
-    while(nodo_siguiente != nullptr){
-        if (nodo_actual == nodo){
-                ListaEnlazada->cabeza = nodo_siguiente;
-                return;
-        }
-        else if(nodo_siguiente == nodo){
-                nodo_actual->next = nodo_siguiente->next;
-                return;
-        }
-        nodo_actual = nodo_actual->next;
-        nodo_siguiente = nodo_siguiente->next;
+void ListaEnlazada::expulsar_nodo(ListaEnlazada* lista_referencia, lista_secciones nodo_a_expulsar) {
+    // 1. Manejo de lista vacía o nodo a expulsar nulo
+    if (lista_referencia == nullptr || nodo_a_expulsar == nullptr) {
+        return; // No hay nada que hacer
     }
-    return;
- }
+
+    // 2. Si el nodo a expulsar es la cabeza
+    if (lista_referencia->cabeza == nodo_a_expulsar) {
+        lista_referencia->cabeza = nodo_a_expulsar->next; // La nueva cabeza es el siguiente
+        delete nodo_a_expulsar; // Liberar la memoria
+        // No hay necesidad de 'return' aquí si queremos que la lista se vacíe
+        // Si quieres que el bucle de asignacion_horarios_por_conflicto termine
+        // cuando solo queda un nodo y este se elimina, esto lo maneja.
+        return; // Salir después de eliminar la cabeza
+    }
+
+    // 3. Buscar el nodo en el resto de la lista
+    section* actual = lista_referencia->cabeza;
+    // Iteramos mientras tengamos un nodo actual y un siguiente (para poder desenlazar)
+    while (actual != nullptr && actual->next != nullptr) {
+        if (actual->next == nodo_a_expulsar) { // Encontramos el nodo después del 'actual'
+            section* temp = actual->next; // Guardar el nodo a borrar
+            actual->next = temp->next; // 'actual' ahora apunta al nodo después de 'temp'
+            delete temp; // ¡Liberar la memoria del nodo expulsado!
+            return; // Nodo encontrado y expulsado
+        }
+        actual = actual->next; // Mover al siguiente nodo
+    }
+
+    // Si el bucle termina, significa que el nodo no fue encontrado
+}
 
  ListaEnlazada* crearListaEnlazada() {
     ListaEnlazada* nuevaLista = new ListaEnlazada;
